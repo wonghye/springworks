@@ -1,0 +1,6 @@
+package com.spring.polymorphism;
+
+public interface TV {
+	public void powerOn();
+	public void powerOff();
+}

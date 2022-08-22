@@ -1,0 +1,11 @@
+package com.spring.polymorphism;
+
+public class TVUserGetBean {
+
+	public static void main(String[] args) {
+		
+		BeanFactory factory = new BeanFactory();
+		TV tv = (TV)factory.getBean(null)
+	}
+
+}

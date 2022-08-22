@@ -1,0 +1,9 @@
+package com.spring.polymorphism;
+
+public interface TV {
+	//추상 메서드
+	public void powerOn();
+	public void powerOff();
+	public void volumeUp();
+	public void volumeDown();
+}

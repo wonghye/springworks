@@ -1,0 +1,8 @@
+package com.spring.product;
+
+public class SamsungTV {
+	
+	public void powerOn() {
+		System.out.println("SamsungTV -- Àü¿ø ÄÒ´Ù");
+	}
+}

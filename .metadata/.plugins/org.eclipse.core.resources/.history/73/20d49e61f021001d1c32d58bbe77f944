@@ -1,0 +1,9 @@
+package com.spring.polymorphism;
+
+public class TVUser {
+
+	public static void main(String[] args) {
+		TV tv = new SamsungTV(); // 인터페이스형 객체(인스턴스) 생성
+	}
+
+}
