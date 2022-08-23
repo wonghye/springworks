@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.spring.product.SamsungTV"/>
+    <fullyQualifiedTypeName name="com.spring.product.LgTV"/>
+    <fullyQualifiedTypeName name="com.spring.polymorphism.SamsungTV"/>
+    <fullyQualifiedTypeName name="com.spring.polymorphism.LgTV"/>
+    <fullyQualifiedTypeName name="com.spring.polymorphism.BeanFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
+    <fullyQualifiedTypeName name="com.spring.consinject.SonySpeaker"/>
+    <fullyQualifiedTypeName name="com.spring.setterinject.Speaker"/>
+</qualifiedTypeNameHistroy>
