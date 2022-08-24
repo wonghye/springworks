@@ -2,7 +2,7 @@ package com.spring.annotation;
 
 import org.springframework.stereotype.Component;
 
-/*@Component("apple")*/
+@Component("apple")
 public class AppleSpeaker implements Speaker {
 
 	public AppleSpeaker() {

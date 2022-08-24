@@ -11,7 +11,7 @@
 	<!-- 어노테이션과 xml 병행 사용  -->
 	<!-- 스피커 빈 등록 : 클래스 이름만 사용해도 됨-->
 	<!-- 스피커를 교체하려면 SonySpeaker를 AppleSpeaker로 수정함  -->
-	<bean class="com.spring.annotation.AppleSpeaker" />
+	<bean class="com.spring.annotation.SonySpeaker" /> 
 	
 	<!-- bean(객체)  -->
 	<!-- id가 객체이름, class 클래스 이름  -->
@@ -26,10 +26,11 @@
 	
 	<!-- setter 인젝션 -->
 	<!-- name 속성 :  set speaker()와, setPrice() 같음 value= 기본자료형 데이터 -->
-	<!-- <bean id="tv" class="com.spring.setterinject.LgTV">
+	<bean id="tv" class="com.spring.setterinject.LgTV">
 		<property name="speaker" ref="apple" />
 		<property name="price" value="700000" /> 
 	</bean>
-	<bean id="apple" class="com.spring.setterinject.AppleSpeaker" /> -->
+	
+	<bean id="apple" class="com.spring.setterinject.AppleSpeaker" /> 
 	
 </beans>
