@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 어노테이션 방식 : 객체 생성-->
+	<context:component-scan base-package="com.spring.annotation" />
+	
+	<!-- 어노테이션과 xml 병행 사용 -->
+	<!-- 스피커 빈 등록 : 클래스 이름만 사용해도 됨 -->
+	<!-- 스피커를 교체하려면 SonySpeaker를 AppleSpeaker로 수정함 -->
+	<bean class="com.spring.annotation.SonySpeaker" />
+
+	<!-- bean(객체) 등록 -->
+	<!-- id가 객체 이름, class-클래스 이름 -->
+	<!-- <bean id="tv" class="com.spring.ploymorphism.LgTV" /> -->
+	
+	<!-- 생성자 인젝션 : SonySpeaker -->
+	<!-- <bean id="tv" class="com.spring.consinject.SamsungTV">
+		<constructor-arg ref="sony" />
+	</bean>
+
+	<bean id="sony" class="com.spring.consinject.SonySpeaker" /> -->
+	
+	<!-- setter 인젝션 -->
+	<!-- name 속성은 setSpeaker(), setPrice()와 같음, value=기본자료형 데이터-->
+	<!-- <bean id="tv" class="com.spring.setterinject.SamsungTV">
+		<property name="speaker" ref="sony" />
+		<property name="price" value="700000" />
+	</bean>
+	
+	<bean id="sony" class="com.spring.setterinject.SonySpeaker" /> -->
+
+</beans>
