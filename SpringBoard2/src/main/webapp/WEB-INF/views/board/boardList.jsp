@@ -14,7 +14,7 @@
 		<section id="list">
 			<h2>글 목록</h2>
 			<h3>
-				<%-- <c:out value="${sessionId }" />님 환영합니다!! --%>
+				<c:out value="${sessionId }" />님 환영합니다!!
 				<a href="/logout"> Log-out</a>
 			</h3>
 			<table class="tbl_list">

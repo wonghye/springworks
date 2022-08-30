@@ -18,7 +18,21 @@
 		SELECT * FROM tbl_board WHERE bno = #{bno}
 	</select>
 	
+	<!-- 글 삭제 -->
 	<delete id="deleteBoard">
 		DELETE FROM tbl_board WHERE bno = #{bno}
 	</delete>
+	
+	<!-- 글 수정 -->
+	<update id="updateBoard">
+		UPDATE tbl_board 
+		SET title=#{title}, content = #{content}
+		WHERE bno = #{bno}
+	</update>
+	
+	<!-- 조회수 증가 parameter type  -->
+	<update id="updateCount" parameterType="int">
+		UPDATE tbl_board
+		SET cnt = cnt + 1 WHERE bno = #{bno}
+	</update>
 </mapper>
