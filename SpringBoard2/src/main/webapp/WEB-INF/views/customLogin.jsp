@@ -9,9 +9,10 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
+	<jsp:include page="./menu.jsp"/>
 	<div id="container">
 		<section id="login">
-			<h2>로그인</h2>
+			<h2 class="main">로그인</h2>
 			<%-- <c:if test="${error ==1 }">
 				<p class="error">
 					<c:out value="아이디나 비밀번호를 확인해주세요! " />
@@ -40,5 +41,6 @@
 			
 		</section>
 	</div>
+	<jsp:include page="./footer.jsp" />
 </body>
 </html>

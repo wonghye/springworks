@@ -8,7 +8,7 @@
 	<!-- CustomAccessDeniedHandler bean으로 등록 -->
 	<bean id="customAccessDenied" class="com.cloud.security.CustomAccessDeniedHandler" />
 	
-	<bean id="customLoginSuccess" class="com.cloud.security.CustomLoginSuccessHandler" />
+	<!-- <bean id="customLoginSuccess" class="com.cloud.security.CustomLoginSuccessHandler" /> -->
 	
 	<!-- <bean id="customPasswordEncoder" class="com.cloud.security.CustomNoOpPasswordEncoder" /> -->
 	<!-- 패스워드 암호화 빈 등록  -->
@@ -17,17 +17,18 @@
 	<!-- Customer user 빈 등록  -->
 	<bean id="customUserDetailsService" class="com.cloud.security.CustomUserDetailsService" />
 	
-	<!-- 기본 서비스  -->
+	<!-- 기본 서비스 -주석시 sample/~ 사이트 접근 불가, 접근시 주석해제 후 접근해야함 -->
 	<security:http>
-		<!-- <security:intercept-url pattern="/sample/all" access="permitAll"/>
+		<security:intercept-url pattern="/sample/all" access="permitAll"/>
 		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
-		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/> -->
+		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
 		
 		<!-- <security:form-login/> -->
-		<security:form-login login-page="/customLogin"
-			authentication-success-handler-ref="customLoginSuccess"/>
+		<security:form-login login-page="/customLogin"/>
+		<!--<security:form-login login-page="/customLogin"
+			authentication-success-handler-ref="customLoginSuccess"/> -->
 		<!-- 로그아웃  -->
-		<security:logout logout-url="/customLogout" invalidate-session="true"/>
+		<!-- <security:logout logout-url="/customLogout" invalidate-session="true"/> -->
 			
 		<!-- 에러 처리 -->
 		<!-- <security:access-denied-handler error-page="/accessError"/> -->

@@ -4,11 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>login</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
+	
 	<div id="container">
 		<section id="login">
 			<h2>로그인</h2>

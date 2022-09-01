@@ -3,12 +3,17 @@ package com.cloud.security.domain;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import javax.annotation.processing.Generated;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 import com.cloud.domain.MemberVO;
 
+import lombok.Getter;
+
+@Getter
 public class CustomUser extends User { // User를 상속한 customer 클래스
 
 	private static final long serialVersionUID = 13L;

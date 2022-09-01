@@ -1,9 +1,12 @@
 package com.cloud.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import lombok.extern.log4j.Log4j;
 
@@ -34,8 +37,11 @@ public class CommonController {
 	
 	//肺弊酒眶 贸府
 	@GetMapping("/customLogout")
-	public void logout() {
+	public String logout(HttpSession session) {
+		session.invalidate(); // 技记昏力
+		
 		log.info("custom logout");
+		return "redirect:/";
 	}
 	
 	

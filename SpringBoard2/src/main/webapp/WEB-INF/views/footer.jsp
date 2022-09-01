@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>인증</title>
+<title>footer</title>
 </head>
 <body>
-	<h1>/sample/member page</h1>
-	<a href="/customLogout"><button type="button">로그아웃</button></a>
+	<footer style="margin-top: 30px; margin-left: 20%;">
+		&copy; Full Stack Software Engineer : hi-Media 
+	</footer>
 </body>
 </html>

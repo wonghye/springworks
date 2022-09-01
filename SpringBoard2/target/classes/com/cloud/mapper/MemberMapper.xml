@@ -8,8 +8,8 @@
 		<id property="userid" column="userid" />
 		<result property="userid" column="userid"/>
 		<result property="userpw" column="userpw"/>
-		<result property="userName" column="userName"/>
-		<result property="regDate" column="regDate"/>
+		<result property="username" column="username"/>
+		<result property="regdate" column="regdate"/>
 		<result property="updateDate" column="updateDate"/>
 		<collection property="authList" resultMap="authMap" />
 	</resultMap>	
@@ -28,5 +28,10 @@
 		WHERE mem.userid = #{userid}
 	</select>
 	
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		INSERT INTO tbl_member(userid, userpw, username, enabled)
+		VALUES (#{userid}, #{userpw}, #{username}, '1')
+	</insert>
 	
 </mapper>

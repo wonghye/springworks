@@ -17,5 +17,6 @@
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 		<button type="submit">로그아웃</button>
 	</form>
+	<jsp:include page="./footer.jsp" />
 </body>
 </html>

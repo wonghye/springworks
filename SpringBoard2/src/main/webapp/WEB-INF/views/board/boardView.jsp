@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +43,14 @@
 					</tr>					
 					<tr>
 						<td colspan="2">
+						<security:authentication property="principal" var="pinfo"/>
+						<security:authorize access="isAuthenticated()">
+						<c:if test="${pinfo.username eq board.writer }">
 							<input type="submit" value="수정">
 							<a href="/board/deleteBoard?bno=<c:out value="${board.bno}"/>" onclick="return confirm('해당 게시글을 삭제하시겠습니가?')">
 							<input type="button" value="삭제"></a>
+						</c:if>	
+						</security:authorize>	
 							<a href="/board/boardList"><input type="button" value="목록"></a>
 						</td>                                                      
 					</tr>

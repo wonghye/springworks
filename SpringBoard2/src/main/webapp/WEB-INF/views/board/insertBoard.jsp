@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +19,11 @@
 			form.title.focus();
 			return false;
 		}
-		if(writer == ""){
+		/* if(writer == ""){
 			alert("이름을 입력해주세요");
 			form.writer.focus();
 			return false;
-		}
+		} */
 		if(content == ""){
 			alert("내용을 입력해주세요");
 			form.content.focus();
@@ -44,7 +45,9 @@
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td><input type="text"  name="writer"></td>
+						<td><input type="text"  name="writer" value='<security:authentication property="principal.username"/>'
+							readonly="readonly"></td>
+						
 					</tr>
 					<tr>
 						<td>내용</td>
@@ -59,6 +62,7 @@
 						</td>
 					</tr>
 				</table>
+				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 			</form>
 		</section>
 	</div>
