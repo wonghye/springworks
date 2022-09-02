@@ -14,7 +14,7 @@
 			<div class="main">
 				<h2>메인 페이지입니다.</h2>
 			</div>
-			<img src="/resources/images/activity.jpg" alt="행글라이더">
+			<img src="/resources/images/tra.jpg" alt="석양">
 			<!-- <h4>
 				<a href="/customLogin">로그인</a> &nbsp;&nbsp;
 				<a href="/member/signup">회원가입</a> &nbsp;&nbsp;

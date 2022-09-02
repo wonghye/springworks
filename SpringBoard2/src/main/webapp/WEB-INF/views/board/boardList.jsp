@@ -15,10 +15,6 @@
 	<div id="container">
 		<section id="list">
 			<h2 class="main">글 목록</h2>
-		<!-- 	<h3>
-				
-				<a href="/customLogout"> Log-out</a>
-			</h3> -->
 			<table class="tbl_list">
 				<tr>
 					<th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th>
