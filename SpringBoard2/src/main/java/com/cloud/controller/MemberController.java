@@ -3,6 +3,7 @@ package com.cloud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +43,7 @@ public class MemberController {
 	
 	//회원 목록 보기
 	@GetMapping("/memberList")
+	@PreAuthorize("isAuthenticated()") // 로그인 창이 뜸
 	public String getMemberList(Model model) {
 		List<MemberVO> memberList = service.getMemberList();
 		model.addAttribute("memberList", memberList);  // view로 모델 보냄

@@ -27,7 +27,7 @@
 		<ul>
 			<li><a href ="/">Home</a></li>
 			<li><a href ='/member/memberView?userid=<c:out value="${pinfo.username }" />'>나의 정보</a></li>
-			<li><a href ="/customLogout">로그아웃</a></li>
+			<li><a href ="/customLogout"><c:out value="${pinfo.username }" />(님)로그아웃</a></li>
 			<li><a href ="/member/memberList">회원목록</a></li>
 			<li><a href="/board/boardList">게시판</a></li>
 		</ul>

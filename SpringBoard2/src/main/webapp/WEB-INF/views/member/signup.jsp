@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ taglib uri= %> --%>    
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +15,15 @@
 		<section id="signup">
 			<h2 class="main">회원 가입</h2>
 			
+			<%-- <p class="lang">
+				<a href="customLogin?lang=en">
+					<spring:message code="message.user.login.language.en" /> |
+				</a> 
+				<a href="customLogin?lang=ko">
+					<spring:message code="message.user.login.language.ko" />
+				</a> 
+			</p>
+			 --%>
 			
 			<form action="/member/signup" method="post" name="regForm" onsubmit="return checkForm()">
 				<table class="tbl_signup">

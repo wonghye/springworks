@@ -28,5 +28,10 @@
 	
 	<mybatis-spring:scan base-package="com.cloud.mapper"/>
 	
+	<!--파일 업로드, 최대파일 크기 : 5mb  -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="500000"></property>
+	</bean>
+	
 	<!-- <context:component-scan base-package="com.cloud" /> -->
 </beans>

@@ -36,7 +36,10 @@
 	
 	<!-- 회원 목록 -->
 	<select id="getMemberList" resultMap="memberMap">
-		SELECT * FROM tbl_member ORDER BY regdate DESC
+		<!-- SELECT * FROM tbl_member ORDER BY regdate DESC -->
+		SELECT mem.userid, mem.username, mem.regdate, auth.auth
+		FROM tbl_member mem, tbl_member_auth auth
+		WHERE mem.userid = auth.userid
 	</select>
 	
 	<!-- 회원 탈퇴  -->

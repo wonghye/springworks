@@ -50,6 +50,8 @@ nav ul li:hover{background: pink; border-top: 3px solid red;}
    border-radius:2px;}
 .tbl_login input[type="submit"], input[type="reset"]{width: 60px; height: 30px;}
 #login .error{color: #f00; margin-top: 10px;}
+#login .lang{text-align: right; margin-right: 30%;}
+#login .lang a{color: green;}
 
 /* sign up 스타일 */
 .tbl_signup{margin: 20px auto; width: 400px;}
@@ -59,3 +61,4 @@ nav ul li:hover{background: pink; border-top: 3px solid red;}
    border-radius:2px;}
 .tbl_signup input[type="submit"], input[type="reset"], input[type="button"]{width: 60px; height: 30px;}
 .tbl_signup td:nth-child(1){width: 120px;}
+#signup .lang{text-align: right; margin-right: 30%;}

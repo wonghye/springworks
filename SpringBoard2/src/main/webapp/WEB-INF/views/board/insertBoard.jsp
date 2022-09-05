@@ -19,11 +19,6 @@
 			form.title.focus();
 			return false;
 		}
-		/* if(writer == ""){
-			alert("이름을 입력해주세요");
-			form.writer.focus();
-			return false;
-		} */
 		if(content == ""){
 			alert("내용을 입력해주세요");
 			form.content.focus();
@@ -33,11 +28,13 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../menu.jsp"/>
 	<div id="container">
 		<section id="list">
-			<h2>글쓰기</h2>
-			<form action="/board/insertBoard" method="post" onsubmit="return checkForm()"
-				name="newWrite">
+			<h2 class="main">글쓰기</h2>
+			<form action="/board/insertBoard?${_csrf.parameterName }=${_csrf.token }" 
+			method="post" enctype="multipart/form-data" 
+			onsubmit="return checkForm()" name="newWrite">
 				<table class="tbl_reg">
 					<tr>
 						<td>제목</td>
@@ -47,12 +44,17 @@
 						<td>작성자</td>
 						<td><input type="text"  name="writer" value='<security:authentication property="principal.username"/>'
 							readonly="readonly"></td>
-						
 					</tr>
 					<tr>
 						<td>내용</td>
 						<td>
 							<textarea name="content" placeholder="Content" cols="50" rows="10"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>업로드</td>
+						<td>
+							<input type="file" name="uploadFile">
 						</td>
 					</tr>
 					<tr>
@@ -66,5 +68,6 @@
 			</form>
 		</section>
 	</div>
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
