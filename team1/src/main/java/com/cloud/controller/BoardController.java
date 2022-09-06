@@ -33,6 +33,13 @@ public class BoardController {
 		return "/board/boardList";
 	}
 	
+	@GetMapping("/boardList2") //localhost:8080/board/boardList
+	public String getBoardList2(Model model) { 
+		List<BoardVO> boardList = service.getBoardList();
+		model.addAttribute("boardList2", boardList);  // view 로 전송
+		return "/board/boardList2";
+	}
+	
 	//글쓰기 폼 페이지 요청
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/insertBoard")
@@ -45,6 +52,7 @@ public class BoardController {
 	@PostMapping("/insertBoard")
 	public String insert(BoardVO vo, HttpServletRequest request) throws IllegalStateException, IOException {
 		request.setCharacterEncoding("utf-8");
+		/*
 		//파일 업로드 처리
 		MultipartFile uploadFile = vo.getUploadFile();
 		if(!uploadFile.isEmpty()) { // 파일이 첨부되었다면
@@ -52,11 +60,12 @@ public class BoardController {
 			String filePath = "C:/upload/";  // 파일의 실제 위치
 			uploadFile.transferTo(new File(filePath + fileName));
 		}
+		*/
 		service.insert(vo);
 		return "redirect:/board/boardList";
 	}
 	
-	//글 상세보기 처리
+	//글 상세보기 처리  + 좋아요 추가 해야함
 	@GetMapping("/boardView")
 	public String getBoard(int bno, Model model) {
 		service.updateCount(bno);			 // 조회수 증가
@@ -71,6 +80,13 @@ public class BoardController {
 		service.delete(vo);
 		return "redirect:/board/boardList";
 	}
+	/*
+	@GetMapping("/deleteBoard")
+	public String delete2(BoardVO vo) {
+		service.delete(vo);
+		return "redirect:/board/boardList2";
+	}
+	*/
 	
 	//글 수정
 	@PostMapping("/updateBoard")
@@ -78,7 +94,13 @@ public class BoardController {
 		service.update(vo);
 		return "redirect:/board/boardList";
 	}
-	
+	/*
+	@PostMapping("/updateBoard")
+	public String update2(BoardVO vo) {
+		service.update(vo);
+		return "redirect:/board/boardList2";
+	}
+	*/
 	
 	
 	

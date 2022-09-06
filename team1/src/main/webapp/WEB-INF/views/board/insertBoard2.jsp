@@ -34,7 +34,8 @@
 		<section id="list">
 			<h2 class="main">글쓰기</h2>
 			<form action="/board/insertBoard?${_csrf.parameterName }=${_csrf.token }" 
-			method="post" onsubmit="return checkForm()" name="newWrite">
+			method="post" enctype="multipart/form-data" 
+			onsubmit="return checkForm()" name="newWrite">
 				<table class="tbl_reg">
 					<tr>
 						<td>제목</td>
@@ -49,6 +50,12 @@
 						<td>내용</td>
 						<td>
 							<textarea name="content" placeholder="Content" cols="50" rows="10"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>업로드</td>
+						<td>
+							<input type="file" name="uploadFile">
 						</td>
 					</tr>
 					<tr>

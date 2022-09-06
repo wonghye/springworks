@@ -17,4 +17,6 @@ public interface BoardService {
 	public void update(BoardVO vo);  		// 글 수정
 	
 	public void updateCount(int bno);       // 조회수
+	
+	public void getHit(int hit);            // 좋아요
 }

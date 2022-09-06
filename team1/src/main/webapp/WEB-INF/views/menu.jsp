@@ -19,7 +19,8 @@
 			<li><a href ="/customLogin">로그인</a></li>
 			<li><a href ="/member/signup">회원가입</a></li>
 			<!-- <li><a href ="/member/memberList">회원목록</a></li> -->
-			<li><a href="/board/boardList">게시판</a></li>			
+			<li><a href="/board/boardList">재미</a></li>			
+			<li><a href="/board/boardList2">공포</a></li>			
 		</ul>
 	</security:authorize>
 	
@@ -30,7 +31,8 @@
 			<li><a href ="/">Home</a></li>
 			<li><a href ="/customLogout"><c:out value="${pinfo.username }" />(님)로그아웃</a></li>
 			<li><a href ="/member/memberList">회원목록</a></li>
-			<li><a href="/board/boardList">게시판</a></li>
+			<li><a href="/board/boardList">재미</a></li>
+			<li><a href="/board/boardList2">공포</a></li>	
 			<li><a href ='/member/memberView?userid=<c:out value="${pinfo.username }" />'>내 정보</a></li>
 		</ul>
 	</security:authorize>

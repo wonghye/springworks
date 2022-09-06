@@ -5,16 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome~</title>
-<link rel="stylesheet" href="/resources/css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
 <body>
 	<jsp:include page="./menu.jsp"/>
-	<div id="container">
+	<div class="heavy-rain-gradient color-block mb-3 mx-auto rounded-circle z-depth-1-half">
 		<section id="main">
 			<div class="main">
-				<h2>메인 페이지입니다.</h2>
+				<h2>메인</h2>
 			</div>
-			<img src="/resources/images/tra.jpg" alt="석양">
+			
 			<!-- <h4>
 				<a href="/customLogin">로그인</a> &nbsp;&nbsp;
 				<a href="/member/signup">회원가입</a> &nbsp;&nbsp;

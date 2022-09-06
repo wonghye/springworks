@@ -17,7 +17,7 @@
 			<h2 class="main">글 목록</h2>
 			<table class="tbl_list">
 				<tr>
-					<th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
+					<th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th>
 				</tr>
 				<c:forEach items="${boardList}" var="board">
 				<tr>
@@ -27,7 +27,6 @@
 					<td><fmt:formatDate value="${board.regDate}" 
 					        pattern="yyyy-MM-dd hh:mm:ss" /></td>
 					<td><c:out value="${board.cnt}" /></td>
-					<td><%-- <c:out value="${board.hit }" /> --%></td>
 				</tr>
 				</c:forEach>
 			</table>
@@ -57,7 +56,7 @@
 					</c:if>
 			</div>
 			<div class="btn_box">
-				<a href="/board/insertBoard"><button type="button">작성하기</button></a>
+				<a href="/board/insertBoard"><button type="button">글쓰기</button></a>
 			</div>
 		</section>
 	</div>

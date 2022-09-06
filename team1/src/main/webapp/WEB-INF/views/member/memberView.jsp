@@ -35,6 +35,11 @@
 						<td><input type="text" name="username" value="${member.username }" ></td>
 					</tr>
 					<tr>
+						<td>이메일</td>
+						<td><input type="text" name="email" value="${member.username }" >@
+							<input type="email"></td>
+					</tr>
+					<tr>
 						<td colspan="2">
 							<input type="submit" value="수정" >
 							<a href="/member/delete?userid=<c:out value="${member.userid }" />"

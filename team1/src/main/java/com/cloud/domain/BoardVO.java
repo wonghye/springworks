@@ -23,7 +23,8 @@ public class BoardVO implements Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date regDate;    //작성일
 	private int cnt;         //조회수
+	private int hit;  		 //좋아요
 	
 	
-	private MultipartFile uploadFile;	//파일 업로드
+	//private MultipartFile uploadFile;	//파일 업로드
 }

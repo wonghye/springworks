@@ -35,4 +35,6 @@
 		UPDATE tbl_board
 		SET cnt = cnt + 1 WHERE bno = #{bno}
 	</update>
+	
+	
 </mapper>
