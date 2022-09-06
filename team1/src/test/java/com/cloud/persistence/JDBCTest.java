@@ -12,12 +12,12 @@ public class JDBCTest {
 	
 	@Test
 	public void testConnection() throws Exception {
-		Class<?> clz = Class.forName("com.mysql.cj.jdbc.Driver");
+		Class<?> clz = Class.forName("oracle.jdbc.OracleDriver");
 		
 		System.out.println(clz);// 드라이버 이름
 		
 		Connection con = DriverManager.getConnection(
-				"jdbc:mysql://@localhost:3306","jweb","54321");
+				"jdbc:oracle:thin:@localhost:1521:xe","c##spring","spring");
 		
 		log.info(con);
 		con.close();

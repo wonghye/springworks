@@ -7,8 +7,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>목록 보기</title>
-<link rel="stylesheet" href="/resources/css/style.css">
+<title>무서운게 딱! 좋아!</title>
+<style>
+/*Keyframes*/
+
+@keyframes rain_effect {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+50% {background-position: 400px 800px, 300px 300px, 200px 200px; background-color: #ddd6f3}
+100% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+}
+
+@-moz-keyframes rain_effect {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+50% {background-position: 400px 800px, 300px 300px, 200px 200px; background-color: #ddd6f3}
+100% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+}
+
+@-webkit-keyframes rain_effect {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+50% {background-position: 400px 800px, 300px 300px, 200px 200px; background-color: #ddd6f3}
+100% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+}
+
+@-ms-keyframes rain_effect {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+50% {background-position: 400px 800px, 300px 300px, 200px 200px; background-color: #ddd6f3}
+100% {background-position: 0px 0px, 0px 0px, 0px 0px; background-color: #faaca8}
+}
+
+body {
+   background-color: #ddd6f3; 
+   animation: rain_effect 40s linear infinite;
+   -webkit-animation: rain_effect 40s linear infinite;
+   -moz-animation: rain_effect 40s linear infinite;
+   -ms-animation: rain_effect 40s linear infinite;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
 	<jsp:include page="../menu.jsp"/>
