@@ -84,42 +84,49 @@
 </script>
 </head>
 <body>
-<jsp:include page="../menu.jsp" />
+   <jsp:include page="../menu.jsp" />
    <div id="container">
       <section id="signup">
-         <h2>회원가입</h2>
-         <form action="/member/signup" method="post" onsubmit= "return checkMember()" name="regForm">
+         <div class="title">
+            <h2>회원 가입</h2>
+         </div>
+         <form action="/member/signup" method="post" 
+              onsubmit="return checkForm()" name="regForm">
             <table class="tbl_signup">
                <tr>
                   <td>아이디</td>
-                  <td>
-                     <input type="text" id="userid" name="userid" placeholder="ID">
-                     <button type="button" id="idCheck" value="N" 
-                        onclick="checkID()">ID중복</button>
-                           <p id="check"></p>
-                  </td>
+                  <td><input type="text" name="userid" placeholder="ID"></td>
                </tr>
                <tr>
                   <td>비밀번호</td>
-                  <td><input type="password" id="userpw" name="userpw" placeholder="PASSWORD"></td>
+                  <td><input type="password" name="userpw"
+                         placeholder="PASSWORD"></td>
                </tr>
                <tr>
                   <td>비밀번호 확인</td>
-                  <td><input type="password" id="userpw_confirm" name="userpw_confirm" placeholder="PASSWORD"></td>
+                  <td><input type="password" name="userpw_confirm"
+                         placeholder="PASSWORD_CONFIRM"></td>
                </tr>
                <tr>
                   <td>이름</td>
-                  <td><input type="text" id="username" name="username" placeholder="NAME"></td>
+                  <td><input type="text" name="username"></td>
+               </tr>
+               <tr>
+                  <td>이메일</td>
+                  <td><input type="text" name="email"></td>
                </tr>
                <tr>
                   <td colspan="2">
-                  <input type="submit" value="등록">
-                  <input type="reset" value="취소">
+                     <input type="submit" value="등록" >
+                     <input type="reset" value="취소">
+                  </td>
                </tr>
             </table>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
          </form>
       </section>
    </div>
+   <jsp:include page="../footer.jsp" />
 </body>
+
 </html>

@@ -43,7 +43,7 @@
                </tr>               
                <tr>
                   <td colspan="2">
-                  <button type="button">재밌어요</button> </td>
+                  <button type="button">무서워요</button> </td>
                </tr>               
                <tr>
                   <td colspan="2">
