@@ -12,7 +12,7 @@
         <result property="userpw" column="userpw"/>
         <result property="username" column="username"/>
         <result property="enabled" column="enabled"/>
-        <result property="regDate" column="regdate"/>
+        <result property="regdate" column="regdate"/>
         <result property="updateDate" column="updatedate"/>
         <collection property="authList" resultMap="authMap"/>
      </resultMap>
