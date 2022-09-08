@@ -44,9 +44,6 @@ public class BoardServiceImpl implements BoardService {
 		mapper.updateCount(bno);
 	}
 
-	@Override
-	public void getHit(int hit) {
-		//mapper.getHit(hit);
-	}
+	
 
 }

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cloud.domain.MemberVO;
 import com.cloud.service.MemberService;
@@ -70,6 +71,14 @@ public class MemberController {
 	public String update(MemberVO member) {
 		service.update(member);
 		return "redirect:/member/memberList";
+	}
+	
+	//id 중복 체크
+	@GetMapping("/checkID")
+	@ResponseBody  // 데이터 전송 어노테이션
+	public int checkID(String userid) {
+		int result = service.checkID(userid);
+		return result;
 	}
 	
 	

@@ -4,6 +4,7 @@
 		let pwd1 = form.userpw.value;
 		let pwd2 = form.userpw_confirm.value;
 		let name = form.username.value;
+		let idChkVal = document.getElementById("idCheck");
 		
 		let regExpId = /^[a-zA-Z0-9]*$/ //영문자, 숫자만(^-시작, *-반복)
 		let regExpPwd1 = /[a-zA-Z0-9]/  //영문자, 숫자
@@ -33,6 +34,10 @@
 			if(name == ""){
 				alert("이름을 입력해주세요");
 				form.name.focus();
+				return false;
+			}
+			if(idChkVal.value == "N"){
+				alert("아이디 중복 확인을 해주세요!");
 				return false;
 			}
 	}

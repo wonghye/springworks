@@ -33,13 +33,6 @@ public class BoardController {
 		return "/board/boardList";
 	}
 	
-	@GetMapping("/boardList2") //localhost:8080/board/boardList
-	public String getBoardList2(Model model) { 
-		List<BoardVO> boardList = service.getBoardList();
-		model.addAttribute("boardList2", boardList);  // view 로 전송
-		return "/board/boardList2";
-	}
-	
 	//글쓰기 폼 페이지 요청
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/insertBoard")
@@ -80,13 +73,7 @@ public class BoardController {
 		service.delete(vo);
 		return "redirect:/board/boardList";
 	}
-	/*
-	@GetMapping("/deleteBoard")
-	public String delete2(BoardVO vo) {
-		service.delete(vo);
-		return "redirect:/board/boardList2";
-	}
-	*/
+	
 	
 	//글 수정
 	@PostMapping("/updateBoard")
@@ -94,15 +81,6 @@ public class BoardController {
 		service.update(vo);
 		return "redirect:/board/boardList";
 	}
-	/*
-	@PostMapping("/updateBoard")
-	public String update2(BoardVO vo) {
-		service.update(vo);
-		return "redirect:/board/boardList2";
-	}
-	*/
-	
-	
 	
 	
 	

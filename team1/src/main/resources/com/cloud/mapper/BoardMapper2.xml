@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.cloud.mapper.BoardMapper2">
+   <!-- id는 메소드, resultType - 반환값 -->
+   <select id="getBoardList2" resultType="com.cloud.domain.BoardVO2">
+      SELECT * FROM tbl_horror ORDER BY bno DESC
+   </select>
+   
+   <insert id="insertBoard2">
+      INSERT INTO tbl_horror(bno, title, writer, content) 
+      VALUES (horrorSeq.nextval, #{title}, #{writer}, #{content})
+   </insert>
+   
+   <select id="getBoard2" resultType="com.cloud.domain.BoardVO2">
+      SELECT * FROM tbl_horror WHERE bno = #{bno}
+   </select>
+   
+   <!-- 글 삭제 -->
+   <delete id="deleteBoard2">
+      DELETE FROM tbl_horror WHERE bno = #{bno}
+   </delete>
+   
+   <!-- 글 수정 -->
+   <update id="updateBoard2">
+      UPDATE tbl_horror 
+      SET title = #{title}, content = #{content}
+      WHERE bno = #{bno}
+   </update>
+   
+   <!-- 조회수 -->
+   <update id="updateCount2">
+      UPDATE tbl_horror
+      SET cnt = cnt + 1
+      WHERE bno = #{bno}
+   </update>
+</mapper>
+
+
+
+
+

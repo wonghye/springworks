@@ -18,5 +18,5 @@ public interface BoardService {
 	
 	public void updateCount(int bno);       // 조회수
 	
-	public void getHit(int hit);            // 좋아요
+	//public void getHit(int hit);            // 좋아요
 }

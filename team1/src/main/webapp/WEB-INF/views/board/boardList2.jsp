@@ -7,60 +7,60 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>재밌는게 딱! 좋아!</title>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<title>무서운게 딱! 좋아!</title>
+<link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
-	<jsp:include page="../menu.jsp"/>
-	<div id="container">
-		<section id="list">
-			<h2 class="main">글 목록</h2>
-			<table class="tbl_list">
-				<tr>
-					<th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th>
-				</tr>
-				<c:forEach items="${boardList}" var="board">
-				<tr>
-					<td><c:out value="${board.bno}" /></td>
-					<td><a href="/board/boardView?bno=<c:out value='${board.bno}'/>"><c:out value="${board.title}" /></a> </td>
-					<td><c:out value="${board.writer}" /></td>
-					<td><fmt:formatDate value="${board.regDate}" 
-					        pattern="yyyy-MM-dd hh:mm:ss" /></td>
-					<td><c:out value="${board.cnt}" /></td>
-				</tr>
-				</c:forEach>
-			</table>
-			<div style="margin-top: 10px;">
-				<!-- 이전 버튼 -->
-				<c:if test="${startPage > 1 }">
-					<a href="/boardList.do?pageNum=<c:out value='${startPage-1 }' />">이전 </a> 
-				</c:if>	
-				<c:if test="${startPage <= 1 }">
-					<a href="/boardList.do?pageNum=<c:out value='${startPage }' />">이전 </a> 
-				</c:if>	
-				<c:forEach var="i" begin="1" end="${endPage }">
-					<!--  현재 페이지와 페이지 번호가 같으면 굵게 표시  -->
-					<c:if test="${currentPage eq i }">
-						<a href="/boardList.do?pageNum=<c:out value='${i }' />"><b><c:out value="${i }" /></b> </a> 
-					</c:if> 
-					<c:if test="${currentPage ne i }"> <!-- ne = not eq -->
-					<a href="/boardList.do?pageNum=<c:out value='${i }' />"><c:out value="${i }" /></a> 
-					</c:if>
-				</c:forEach>
-					<!-- 다음 버튼  -->
-					<c:if test="${endPage > startPage }" >
-						<a href="/boardList.do?pageNum=<c:out value='${startPage +1 }' />">다음 </a> 
-					</c:if>
-					<c:if test="${endPage <= startPage }" >
-						<a href="/boardList.do?pageNum=<c:out value='${startPage }' />">다음 </a> 
-					</c:if>
-			</div>
-			<div class="btn_box">
-				<a href="/board/insertBoard"><button type="button">글쓰기</button></a>
-			</div>
-		</section>
-	</div>
-	<jsp:include page="../footer.jsp" />
+   <jsp:include page="../menu.jsp"/>
+   <div id="container">
+      <section id="list">
+         <h2 class="main">호러 게시판</h2>
+         <table class="tbl_list">
+            <tr>
+               <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
+            </tr>
+            <c:forEach items="${boardList2}" var="board2">
+            <tr>
+               <td><c:out value="${board2.bno}" /></td>
+               <td><a href="/board/boardView2?bno=<c:out value='${board2.bno}'/>"><c:out value="${board2.title}" /></a> </td>
+               <td><c:out value="${board2.writer}" /></td>
+               <td><fmt:formatDate value="${board2.regDate}" 
+                       pattern="yyyy-MM-dd hh:mm:ss" /></td>
+               <td><c:out value="${board2.cnt}" /></td>
+               <td><%-- <c:out value="${board.hit }" /> --%></td>
+            </tr>
+            </c:forEach>
+         </table>
+         <div style="margin-top: 10px;">
+            <!-- 이전 버튼 -->
+            <c:if test="${startPage > 1 }">
+               <a href="/boardList2.do?pageNum=<c:out value='${startPage-1 }' />">이전 </a> 
+            </c:if>   
+            <c:if test="${startPage <= 1 }">
+               <a href="/boardList2.do?pageNum=<c:out value='${startPage }' />">이전 </a> 
+            </c:if>   
+            <c:forEach var="i" begin="1" end="${endPage }">
+               <!--  현재 페이지와 페이지 번호가 같으면 굵게 표시  -->
+               <c:if test="${currentPage eq i }">
+                  <a href="/boardList2.do?pageNum=<c:out value='${i }' />"><b><c:out value="${i }" /></b> </a> 
+               </c:if> 
+               <c:if test="${currentPage ne i }"> <!-- ne = not eq -->
+               <a href="/boardList2.do?pageNum=<c:out value='${i }' />"><c:out value="${i }" /></a> 
+               </c:if>
+            </c:forEach>
+               <!-- 다음 버튼  -->
+               <c:if test="${endPage > startPage }" >
+                  <a href="/boardList2.do?pageNum=<c:out value='${startPage +1 }' />">다음 </a> 
+               </c:if>
+               <c:if test="${endPage <= startPage }" >
+                  <a href="/boardList2.do?pageNum=<c:out value='${startPage }' />">다음 </a> 
+               </c:if>
+         </div>
+         <div class="btn_box">
+            <a href="/board/insertBoard2"><button type="button">작성하기</button></a>
+         </div>
+      </section>
+   </div>
+   <jsp:include page="../footer.jsp" />
 </body>
 </html>
