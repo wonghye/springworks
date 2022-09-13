@@ -8,9 +8,23 @@
 <head>
 <meta charset="UTF-8">
 <title>재밌는게 딱! 좋아!</title>
-<style type="text/css">
+<style>
+/* @font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{font-family: 'SBAggroB';}  */
 
-.dung {
+ @font-face {
+    font-family: 'GOSEONGGEUMGANGNURI';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/GOSEONGGEUMGANGNURI.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{font-family: 'GOSEONGGEUMGANGNURI';} 
+   .dung {
 position: absolute;
 z-index: 99;
 width: 80px;
@@ -25,15 +39,16 @@ animation: dung 100s infinite linear;
 75% {top:75%; left:0;}
 100% {top:99%; left:80%;}
 }
-body,footer{background-image: linear-gradient(to bottom, #f9e7f9, #ffe8ef, #ffede5, #fff4e2, #f7fbe7);}
+
+#container{background-image: linear-gradient(to bottom, #f9e7f9, #ffe8ef, #ffede5, #fff4e2, #f7fbe7);}
 </style>
 </head>
-<body >
+<body>
    <jsp:include page="../menu.jsp"/>
    <div id="container">
       <section id="list">
          <h2 class="main">유머 게시판</h2>
-         <p class="dung"></p>
+         <p class="dung">
          <table class="tbl_list">
             <tr>
                <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
@@ -41,16 +56,16 @@ body,footer{background-image: linear-gradient(to bottom, #f9e7f9, #ffe8ef, #ffed
             <c:forEach items="${boardList}" var="board">
             <tr>
                <td><c:out value="${board.bno}" /></td>
-               <td><a style="color:black" href="/board/boardView?bno=<c:out value='${board.bno}'/>"><c:out value="${board.title}" /></a> </td>
+               <td><a href="/board/boardView?bno=<c:out value='${board.bno}'/>"><c:out value="${board.title}" /></a> </td>
                <td><c:out value="${board.writer}" /></td>
                <td><fmt:formatDate value="${board.regDate}" 
                        pattern="yyyy-MM-dd hh:mm:ss" /></td>
                <td><c:out value="${board.cnt}" /></td>
-               <td><i class="bi bi-hand-thumbs-up"></i><%-- <c:out value="${board.hit }" /> --%></td>
+               <td><%-- <c:out value="${board.hit }" /> --%></td>
             </tr>
             </c:forEach>
          </table>
-         <div style="margin-top: 10px; color: black;">
+         <div style="margin-top: 10px;">
             <!-- 이전 버튼 -->
             <c:if test="${startPage > 1 }">
                <a href="/boardList.do?pageNum=<c:out value='${startPage-1 }' />">이전 </a> 
@@ -80,7 +95,8 @@ body,footer{background-image: linear-gradient(to bottom, #f9e7f9, #ffe8ef, #ffed
          </div>
       </section>
    </div>
-   <jsp:include page="../footer.jsp" />
    <link rel="stylesheet" href="/resources/css/style.css">
+   <jsp:include page="../footer.jsp" />
+   
 </body>
 </html>

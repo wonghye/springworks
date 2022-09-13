@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>    
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <body>
 	<h1>/sample/all page</h1>
 	
-	<!-- 로그인 하지 않는 사용자 -->
+	<!-- 로그인 하지 않은 사용자 -->
 	<security:authorize access="isAnonymous()">
 		<a href="/customLogin">로그인</a>
 	</security:authorize>

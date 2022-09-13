@@ -25,10 +25,9 @@ public class MemberMapperTest {
 	@Test
 	public void testRead() {
 		MemberVO vo = mapper.read("admin93");
-		log.info(vo);  // 회원 정보 출력
+		log.info(vo);
 		
-		//인증 정보 출력
+		//인증 
 		vo.getAuthList().forEach(authVO -> log.info(authVO));
-		
 	}
 }

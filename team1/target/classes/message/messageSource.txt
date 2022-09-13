@@ -1,11 +1,24 @@
 #login.jsp
 
-message.user.login.title=로그인
-message.user.login.id=아이디
-message.user.login.password=비빌번호
-message.user.login.loginBtn=로그인
+message.user.login.title = 로그인
+message.user.login.id = 아이디
+message.user.login.password = 비밀번호
+message.user.login.keepLogin= 자동 로그인
+message.user.login.loginBtn = 로그인
+message.user.login.signUp= 회원가입
 
-message.user.login.language.en=영어
-message.user.login.language.ko=한글
+#signup.jsp
+message.user.signup.title = 회원가입
+message.user.signup.id = 아이디
+message.user.signup.password = 비밀번호
+message.user.signup.password2 = 비밀번호 확인
+message.user.signup.name = 이름
+message.user.signup.email = 이메일
+message.user.signup.submit = 등록
+message.user.signup.reset = 취소
 
 
+message.user.login.language.en = 영어
+message.user.login.language.ko = 한글
+message.user.signup.language.en = 영어
+message.user.signup.language.ko = 한글

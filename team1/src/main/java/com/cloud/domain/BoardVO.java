@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BoardVO implements Serializable{
-	
-	
+
 	private static final long serialVersionUID = 10L;
 	
 	private int bno;         //글번호
@@ -23,9 +21,5 @@ public class BoardVO implements Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date regDate;    //작성일
 	private int cnt;         //조회수
-	private int like; 
-	//private int hit;  		 //좋아요
 	
-	
-	//private MultipartFile uploadFile;	//파일 업로드
 }

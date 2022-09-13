@@ -21,46 +21,45 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class MemberTests {
 	
 	@Autowired
-	private DataSource ds;  // 주입했으므로 객체
+	private DataSource ds;
 	
 	@Autowired
 	private PasswordEncoder pwencoder;
 	
-	//회원 100명으로 가입
-	/*
-	@Test
+	//회원 100명 가입
+	/*@Test
 	public void testInsertMember() {
-		String sql = "INSERT INTO tbl_member(userid, userpw, username) VALUES(?,?,?)";
+		String sql = "INSERT INTO tbl_member(userid, userpw, username) VALUES (?, ? ,?)";
 		
-		for(int i=0; i<100; i++) {
+		for(int i = 0; i < 100; i++) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			try {
 				conn = ds.getConnection();
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(2, pwencoder.encode("pw" + i));
-				if(i < 80) { // 0~79 
+				if(i < 80) { // 0~79
 					pstmt.setString(1, "user" + i);
-					pstmt.setString(3, "일반 사용자" + i);
-				}else if(i < 90) {  // 80~89
+					pstmt.setString(3, "일반사용자" + i);
+				}else if( i < 90 ) { //80~89
 					pstmt.setString(1, "member" + i);
 					pstmt.setString(3, "회원" + i);
-				}else {  // 90~100
+				}else { //90~100
 					pstmt.setString(1, "admin" + i);
 					pstmt.setString(3, "관리자" + i);
 				}
-				pstmt.executeUpdate();  // 실행
+				pstmt.executeUpdate();	//실행
+						
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}finally {
+			} finally {
 				if(pstmt != null) {
 					try {
 						pstmt.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-				}
-				if(conn != null) {
+				}if (conn != null) {
 					try {
 						conn.close();
 					} catch (SQLException e) {
@@ -68,34 +67,31 @@ public class MemberTests {
 					}
 				}
 			}
-			
-			
-		}// for close
-	} //test insert member close
-	*/
-	
+		}//for close()
+	}*/ //testInsertMember() close 
 	
 	@Test
 	public void testInsertAuth() {
-		String sql = "INSERT INTO tbl_member_auth(userid, auth) VALUES(?,?)";
-		
-		for(int i=0; i<100; i++) {
+		String sql = "INSERT INTO tbl_member_auth (userid, auth) VALUES (?, ?)";
+
+		for(int i = 0; i < 100; i++) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			try {
 				conn = ds.getConnection();
 				pstmt = conn.prepareStatement(sql);
-				if(i < 80) { // 0~79 
+
+				if(i < 80) { // 0~79
 					pstmt.setString(1, "user" + i);
-					pstmt.setString(2, "ROLE_USER" );
-				}else if(i < 90) {  // 80~89
+					pstmt.setString(2, "ROLE_USER");
+				}else if( i < 90 ) { //80~89
 					pstmt.setString(1, "member" + i);
-					pstmt.setString(2, "ROLE_MEMBER" );
-				}else {  // 90~100
+					pstmt.setString(2, "ROLE_MEMBER");
+				}else { //90~100
 					pstmt.setString(1, "admin" + i);
-					pstmt.setString(2, "ROLE_ADMIN" );
+					pstmt.setString(2, "ROLE_ADMIN");
 				}
-				pstmt.executeUpdate();  // 실행
+				pstmt.executeUpdate();	//실행
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
@@ -105,8 +101,7 @@ public class MemberTests {
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-				}
-				if(conn != null) {
+				}if (conn != null) {
 					try {
 						conn.close();
 					} catch (SQLException e) {
@@ -114,10 +109,6 @@ public class MemberTests {
 					}
 				}
 			}
-			
-		} //for close
-	}// test close
-	
-	
-	
+		}
+	}
 }

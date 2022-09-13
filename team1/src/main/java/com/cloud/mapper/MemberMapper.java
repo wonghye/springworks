@@ -6,7 +6,7 @@ import com.cloud.domain.MemberVO;
 
 public interface MemberMapper {
    
-   //회원 상세보기
+   //회원 상세 보기
    public MemberVO read(String userid);
    
    //회원 가입
@@ -21,9 +21,4 @@ public interface MemberMapper {
    //회원 수정
    public void updateMember(MemberVO member);
 
-   //ID중복 체크
-   public int checkID(String userid);
-   
-   
-   
 }

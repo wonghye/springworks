@@ -8,12 +8,20 @@
 <head>
 <meta charset="UTF-8">
 <title>무서운게 딱! 좋아!</title>
-<style>
+<link rel="stylesheet" href="/resources/css/style.css">
+<style type="text/css">
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{font-family: 'SangSangRock';}
 .dung {
 position: absolute;
 z-index: 99;
-width: 150px;
-height: 150px;
+width: 80px;
+height: 80px;
 background: url("../resources/images/ghost1.png") no-repeat center / contain;
 animation: dung 100s infinite linear;
 }
@@ -24,17 +32,16 @@ animation: dung 100s infinite linear;
 75% {top:75%; left:0;}
 100% {top:99%; left:80%;}
 }
+#container{background-image: linear-gradient(to bottom, #d32929, #a42027, #761a21, #4b1418, #230a0a);}
+.tbl_list td{color:#eee;}
 
-body, footer{background-image: linear-gradient(to top, #0d2953, #332757, #502153, #671a49, #781739);}
 </style>
-
-<link rel="stylesheet" href="/resources/css/style.css">
 </head>
-<body >
+<body>
    <jsp:include page="../menu.jsp"/>
    <div id="container">
       <section id="list">
-         <h2 class="main">호러 게시판</h2>
+         <h2 class="main" style="color:#eee"><strong>호러 게시판</strong></h2>
          <p class="dung"></p>
          <table class="tbl_list">
             <tr>
@@ -43,7 +50,7 @@ body, footer{background-image: linear-gradient(to top, #0d2953, #332757, #502153
             <c:forEach items="${boardList2}" var="board2">
             <tr>
                <td><c:out value="${board2.bno}" /></td>
-               <td><a style="color:black" href="/board/boardView2?bno=<c:out value='${board2.bno}'/>"><c:out value="${board2.title}" /></a> </td>
+               <td><a style="color:#eee" href="/board/boardView2?bno=<c:out value='${board2.bno}'/>"><c:out value="${board2.title}" /></a> </td>
                <td><c:out value="${board2.writer}" /></td>
                <td><fmt:formatDate value="${board2.regDate}" 
                        pattern="yyyy-MM-dd hh:mm:ss" /></td>
@@ -81,7 +88,8 @@ body, footer{background-image: linear-gradient(to top, #0d2953, #332757, #502153
             <a href="/board/insertBoard2"><button type="button">작성하기</button></a>
          </div>
       </section>
+   <link rel="stylesheet" href="/resources/css/style.css">
    </div>
-   <jsp:include page="../footer.jsp" />
+    <jsp:include page="../footer.jsp" />
 </body>
 </html>

@@ -12,15 +12,14 @@ import lombok.Setter;
 @Getter
 public class BoardVO2 implements Serializable{
 
-   private static final long serialVersionUID = 10L;
-   
-   private int bno;         //글번호
-   private String title;    //제목
-   private String writer;   //작성자
-   private String content;  //내용
-   @DateTimeFormat(pattern="yyyy-MM-dd")
-   private Date regDate;    //작성일
-   private int cnt;         //조회수
-   private int like;
-   
+	private static final long serialVersionUID = 10L;
+	
+	private int bno;         //글번호
+	private String title;    //제목
+	private String writer;   //작성자
+	private String content;  //내용
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date regDate;    //작성일
+	private int cnt;         //조회수
+	
 }

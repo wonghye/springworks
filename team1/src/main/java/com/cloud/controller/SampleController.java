@@ -13,15 +13,14 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class SampleController {
 
-	
 	/*@GetMapping("/all")
 	public void doAll() {
-		log.info("모든 사용자 접근할 수 있음");
-	}
-	*/
+		log.info("모든 사용자가 접근할 수 있음");
+	}*/
+	
 	@GetMapping("/all")
 	public String doAll() {
-		log.info("모든 사용자 접근할 수 있음");
+		log.info("모든 사용자가 접근할 수 있음");
 		return "/sample/all";
 	}
 	
@@ -34,18 +33,18 @@ public class SampleController {
 	public void doAdmin() {
 		log.info("로그인한 관리자만 접근");
 	}
-	
+
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')")
 	@GetMapping("/annoMember")
-	public void doMember2() {
-		log.info("로그인한 멤버와 관리자 모두");
+	public void doMember2() { 
+		log.info("로그인한 멤버");
 	}
 	
 	@Secured({"ROLE_ADMIN"})
 	@GetMapping("/annoAdmin")
-	public void doAdmin2(){
-		log.info("로그인한 관리자만");
+		public void doAdmin2() {
+		log.info("로그인 한 관리자만");
+		}
 	}
 	
-	
-}
+

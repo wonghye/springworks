@@ -2,16 +2,16 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+  
 <mapper namespace="com.cloud.mapper.BoardMapper">
-	<!-- id는 메소드 result type - 반환값-->
+	<!-- id는 메소드, resultType - 반환값 -->
 	<select id="getBoardList" resultType="com.cloud.domain.BoardVO">
 		SELECT * FROM tbl_humor ORDER BY bno DESC
 	</select>
 	
 	<insert id="insertBoard">
 		INSERT INTO tbl_humor(bno, title, writer, content) 
-		VALUES(humorSeq.nextval, #{title}, #{writer}, #{content})
+		VALUES (humorSeq.nextval, #{title}, #{writer}, #{content})
 	</insert>
 	
 	<select id="getBoard" resultType="com.cloud.domain.BoardVO">
@@ -25,16 +25,15 @@
 	
 	<!-- 글 수정 -->
 	<update id="updateBoard">
-		UPDATE tbl_humor
-		SET title=#{title}, content = #{content}
+		UPDATE tbl_humor 
+		SET title = #{title}, content = #{content}
 		WHERE bno = #{bno}
 	</update>
 	
-	<!-- 조회수 증가 parameter type  -->
-	<update id="updateCount" parameterType="int">
+	<!-- 조회수 -->
+	<update id="updateCount">
 		UPDATE tbl_humor
-		SET cnt = cnt + 1 WHERE bno = #{bno}
+		SET cnt = cnt + 1
+		WHERE bno = #{bno}
 	</update>
-	
-	
 </mapper>

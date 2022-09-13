@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- DataSource 설정 - hikari 빈 등록(setter 주입) -->	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
@@ -15,23 +16,23 @@
 		<property name="password" value="spring" />
 	</bean>
 	
-	<!--datasource 빈 등록- 생성자 주입  -->
+	<!-- dataSource 빈 등록 - 생성자 주입 -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-		destroy-method="close">
+	      destroy-method="close">
 		<constructor-arg ref="hikariConfig" />
 	</bean>
 	
-	<!-- 마이 바티스 사용 - sqlSessionFactory 빈 등록 data source 객체 참조 -->
+	<!-- 마이바티즈 사용 - sqlSessionFactory 빈 등록: dataSource 객체 참조 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
 	<mybatis-spring:scan base-package="com.cloud.mapper"/>
 	
-	<!--파일 업로드, 최대파일 크기 : 5mb  -->
+	<!-- 파일 업로드 설정 , 최대 파일 크기 : 5MB-->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="500000"></property>
+		<property name="maxUploadSize" value="5000000"/>
 	</bean>
 	
-	<!-- <context:component-scan base-package="com.cloud" /> -->
+	
 </beans>

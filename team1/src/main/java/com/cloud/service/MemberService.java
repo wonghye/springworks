@@ -5,11 +5,11 @@ import java.util.List;
 import com.cloud.domain.MemberVO;
 
 public interface MemberService {
-   
+
    //회원 가입
    public void signup(MemberVO member);
    
-   //회원 목록 보기
+   //회원 목록
    public List<MemberVO> getMemberList();
    
    //회원 상세 보기
@@ -20,7 +20,4 @@ public interface MemberService {
    
    //회원 수정
    public void update(MemberVO member);
-   
-   //ID 중복 체크
-   public int checkID(String userid);
 }

@@ -1,6 +1,5 @@
 package com.cloud.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cloud.domain.MemberVO;
 import com.cloud.service.MemberService;
@@ -24,9 +22,6 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/member/*")
 @Controller
 public class MemberController {
-   
-   @Autowired
-      private PasswordEncoder pwencoder;
    
    private MemberService service;  //생성자 주입
    
@@ -43,20 +38,12 @@ public class MemberController {
       return "redirect:/customLogin";
    }
    
-   //ID 중복 체크
-   @GetMapping("/checkID")
-   @ResponseBody
-   public int checkID(String userid) {
-     int result = service.checkID(userid);
-     return result;
-   }
-   
    //회원 목록 보기
    @GetMapping("/memberList")
-   @PreAuthorize("isAuthenticated()")
+   @PreAuthorize("isAuthenticated()")   //로그인 창 뜸
    public String getMemberList(Model model) {
       List<MemberVO> memberList = service.getMemberList();
-      model.addAttribute("memberList", memberList);
+      model.addAttribute("memberList", memberList); //view로 모델 보냄
       return "/member/memberList";
    }
    
@@ -65,7 +52,6 @@ public class MemberController {
    public String getMember(String userid, Model model) {
       MemberVO member = service.read(userid);
       model.addAttribute("member", member);
-      
       return "/member/memberView";
    }
    
@@ -73,17 +59,19 @@ public class MemberController {
    @GetMapping("/delete")
    public String delete(MemberVO member) {
       service.delete(member);
-      return "redirect:/";
+      return "redirect:/";  //메인페이지 이동
    }
    
    //회원 수정
    @PostMapping("/update")
    public String update(MemberVO member) {
-      //비밀번호 암호화
-      String encPw = pwencoder.encode(member.getUserpw());
-         member.setUserpw(encPw);
-         
       service.update(member);
       return "redirect:/member/memberList";
    }
 }
+
+
+
+
+
+

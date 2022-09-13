@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>footer</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<footer class="foot">
-      &copy; Full Stack Software Engineer : 고정우, 양선영, 최혜원, 한지수
-   	</footer>
+   <footer>
+      &copy; Full Stack Software Engineer : Hi-Media
+   </footer>
 </body>
 </html>
