@@ -38,7 +38,7 @@
 				<table class="tbl_reg">
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="title" placeholder="Title"></td>
+						<td><input type="text" name="title" placeholder="Title" autofocus></td>
 					</tr>
 					<tr>
 						<td>작성자</td>

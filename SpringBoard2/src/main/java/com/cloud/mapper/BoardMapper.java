@@ -3,11 +3,14 @@ package com.cloud.mapper;
 import java.util.List;
 
 import com.cloud.domain.BoardVO;
+import com.cloud.domain.Criteria;
 
 //DAO 역할
 public interface BoardMapper {
 	
 	public List<BoardVO> getBoardList();  // 글 목록 보기
+	
+	public List<BoardVO> getListWithPage(Criteria cri); // 목록 페이지
 	
 	public void insertBoard(BoardVO vo);  // 글 쓰기
 	

@@ -22,6 +22,7 @@ public class BoardVO implements Serializable{
 	private String content;  //내용
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date regDate;    //작성일
+	private Date updateDate; //수정일 
 	private int cnt;         //조회수
 	
 	
