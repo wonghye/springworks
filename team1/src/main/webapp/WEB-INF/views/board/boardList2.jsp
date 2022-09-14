@@ -26,7 +26,7 @@ background: url("../resources/images/ghost1.png") no-repeat center / contain;
 animation: dung 100s infinite linear;
 }
 @keyframes dung {
-0% {top:0; left:80%;}
+0% {top:10; left:80%;}
 25% {top:25%; left:0;}
 50% {top:50%; left:80%;}
 75% {top:75%; left:0;}

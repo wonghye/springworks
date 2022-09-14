@@ -12,18 +12,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/319f0bada6.js" crossorigin="anonymous"></script>
 <style>
-ul{width:100%; margin:0 auto; height:100%}
-li{float:left; padding:10px; margin:0px 30px; text-align:center;}
-.collapse a{color:white; text-decoration:none;}
+.NavBox ul{width:100%; margin:0 auto; height:100%}
+.NavBox li{width:180px; float:left; padding:10px 0px; margin:0px; text-align:center; list-style: none;}
+.NavBox a{color:white; text-decoration:none;}
 .menutopbox{height:90px; margin:0px;}
-@media ( max-width: 768px ) {
-  li{float:none;}
-  .menutopbox{height:100%;}
+@media (min-width: 0px) and (max-width: 1024px) {
+.NavBox li{float:left; width:100%; height:20px; margin-bottom:20px;}
+.NavBox ul{width:100%; margin:0 auto; height:100%}
+.menutopbox{height:250px;}
 }
 </style>
 </head>
 <body>
-<div class="collapse" id="navbarToggleExternalContent">
+<div class="collapse NavBox" id="navbarToggleExternalContent">
   <div class="bg-dark p-4 menutopbox">
   <security:authorize access="isAnonymous()">
       <ul>  
