@@ -12,6 +12,8 @@ public interface BoardMapper {
 	
 	public List<BoardVO> getListWithPage(Criteria cri); // 목록 페이지
 	
+	  public int getTotalCount(Criteria cri);  //게시글 총 개수
+	
 	public void insertBoard(BoardVO vo);  // 글 쓰기
 	
 	public BoardVO getBoard(int bno);  	  // 글 상세보기

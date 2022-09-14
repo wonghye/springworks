@@ -23,6 +23,11 @@
 		]]>
 	</select>
 	
+	<!-- 총 게시글 수  -->
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM tbl_board
+	</select>
+	
 	<insert id="insertBoard">
 		INSERT INTO tbl_board(bno, title, writer, content) 
 		VALUES(seq.nextval, #{title}, #{writer}, #{content})

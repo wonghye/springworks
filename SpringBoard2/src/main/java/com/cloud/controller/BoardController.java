@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cloud.domain.BoardVO;
+import com.cloud.domain.Criteria;
+import com.cloud.domain.PageDTO;
 import com.cloud.service.BoardService;
 
 @RequestMapping("/board/*")  // localhost:8080/board/~~
@@ -26,10 +28,25 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
+	//목록보기
+	/*
 	@GetMapping("/boardList") //localhost:8080/board/boardList
 	public String getBoardList(Model model) { 
 		List<BoardVO> boardList = service.getBoardList();
 		model.addAttribute("boardList", boardList);  // view 로 전송
+		return "/board/boardList";
+	}
+	*/
+	
+	//목록보기
+	@GetMapping("/boardList") //localhost:8080/board/boardList
+	public String getBoardList(Criteria cri, Model model) { 
+		List<BoardVO> boardList = service.getListWithPage(cri);
+		int total = service.getTotalCount(cri);
+		PageDTO pageMaker = new PageDTO(cri, service.getTotalCount(cri));
+		
+		model.addAttribute("boardList", boardList);  // view 로 전송
+		model.addAttribute("pageMaker", pageMaker); // "pageMaker" -> boardList
 		return "/board/boardList";
 	}
 	

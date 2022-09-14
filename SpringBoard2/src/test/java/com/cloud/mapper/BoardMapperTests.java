@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cloud.domain.BoardVO;
 import com.cloud.domain.Criteria;
+import com.cloud.domain.PageDTO;
 import com.cloud.mapper.BoardMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -33,6 +34,7 @@ public class BoardMapperTests {
 	}
 	*/
 	
+	/*
 	@Test
 	public void testPaging() {
 		Criteria cri = new Criteria();
@@ -45,6 +47,17 @@ public class BoardMapperTests {
 		.map(board -> board.getBno())  // 글번호 매핑
 		.forEach(board -> log.info(board));	// 전체 데이터 출력 
 		
+	}
+	*/
+	
+	@Test
+	public void testPageDTO() {
+		Criteria cri = new Criteria();
+		//cri.setPageNum(1);  //startPage - 1페이지
+		cri.setPageNum(11);  //startPage - 11페이지
+		
+		PageDTO page = new PageDTO(cri, 152);
+		log.info(page);
 	}
 	
 	

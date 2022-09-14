@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cloud.domain.BoardVO;
+import com.cloud.domain.Criteria;
 import com.cloud.mapper.BoardMapper;
 
 @Service
@@ -43,5 +44,19 @@ public class BoardServiceImpl implements BoardService {
 	public void updateCount(int bno) {   // Á¶È¸¼ö
 		mapper.updateCount(bno);
 	}
+
+	@Override
+	public List<BoardVO> getListWithPage(Criteria cri) {
+		 return mapper.getListWithPage(cri);
+
+	}
+
+	@Override
+	public int getTotalCount(Criteria cri) {
+		  return mapper.getTotalCount(cri);
+
+	}
+	
+	
 
 }
