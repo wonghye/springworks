@@ -39,8 +39,10 @@ animation: dung 100s infinite linear;
 75% {top:75%; left:0;}
 100% {top:99%; left:80%;}
 }
-
 #container{background-image: linear-gradient(to bottom, #f9e7f9, #ffe8ef, #ffede5, #fff4e2, #f7fbe7);}
+.multiple-box-shadows {
+  box-shadow: -5px -5px 30px 5px #FFB3B3, 5px 5px 30px 5px #FFDBA4;
+}
 </style>
 </head>
 <body>
@@ -49,7 +51,7 @@ animation: dung 100s infinite linear;
       <section id="list">
          <h2 class="main">유머 게시판</h2>
          <p class="dung">
-         <table class="tbl_list">
+         <table class="tbl_list multiple-box-shadows">
             <tr>
                <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
             </tr>
@@ -91,7 +93,7 @@ animation: dung 100s infinite linear;
                </c:if>
          </div>
          <div class="btn_box">
-            <a href="/board/insertBoard"><button type="button">작성하기</button></a>
+                 <a href="/board/insertBoard"><button type="button" class="btn-hover color-10">작성하기</button></a>
          </div>
       </section>
    </div>

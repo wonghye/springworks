@@ -5,18 +5,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>회원 목록</title>
+<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<style type="text/css">
+/* #container{background-color: black;} */
+.multiple-box-shadows {
+ /*  box-shadow: -5px -5px 25px 3px b, 5px 5px 30px 5px blue; */
+ box-shadow: 0 0 15px  green;
+}
+</style>
 </head>
 <body>
    <jsp:include page="../menu.jsp" />
    <div id="container">
       <section id="list">
          <div class="title">
-            <h2>회원 목록</h2>
+            <!-- <h2 style="color: white;">회원 목록</h2> -->
+            <h2 >회원 목록</h2>
          </div>
-            <table class="tbl_list">
+            <table class="tbl_list multiple-box-shadows">
                <thead>
                   <tr>
                      <th>번호</th>

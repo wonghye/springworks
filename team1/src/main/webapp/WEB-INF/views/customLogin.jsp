@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title><spring:message code="message.user.login.title" /></title>
+<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>

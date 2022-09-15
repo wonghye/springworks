@@ -34,7 +34,9 @@ animation: dung 100s infinite linear;
 }
 #container{background-image: linear-gradient(to bottom, #d32929, #a42027, #761a21, #4b1418, #230a0a);}
 .tbl_list td{color:#eee;}
-
+.multiple-box-shadows {
+  box-shadow: -5px -5px 30px 5px black, 5px 5px 30px 5px blue;
+}
 </style>
 </head>
 <body>
@@ -43,7 +45,7 @@ animation: dung 100s infinite linear;
       <section id="list">
          <h2 class="main" style="color:#eee"><strong>호러 게시판</strong></h2>
          <p class="dung"></p>
-         <table class="tbl_list">
+         <table class="tbl_list multiple-box-shadows">
             <tr>
                <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
             </tr>

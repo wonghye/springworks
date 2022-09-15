@@ -5,8 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome~</title>
+<title>공포 - 글 작성하기</title>
+<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<style type="text/css">
+#container{background-image: linear-gradient(to bottom, #d32929, #a42027, #761a21, #4b1418, #230a0a);}
+.multiple-box-shadows {
+  box-shadow: -5px -5px 30px 5px black, 5px 5px 30px 5px blue;
+}
+
+</style>
 <script type="text/javascript">
 	function checkForm(){
 		//alert("글쓰기");
@@ -28,12 +36,13 @@
 </script>
 </head>
 <body>
+<jsp:include page="../menu.jsp"/>	
 	<div id="container">
 		<section id="list">
-			<h2>글쓰기</h2>
+			<h2 style="color:white">글쓰기</h2>
 			<form action="/board/insertBoard2" method="post" 
 				  onsubmit="return checkForm()" name="newWrite">
-				<table class="tbl_reg">
+				<table class="tbl_reg multiple-box-shadows">
 					<tr>
 						<td>제목</td>
 						<td><input type="text" name="title" placeholder="Title"></td>
