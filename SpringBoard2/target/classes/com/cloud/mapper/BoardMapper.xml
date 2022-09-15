@@ -28,6 +28,32 @@
 		SELECT COUNT(*) FROM tbl_board
 	</select>
 	
+	
+	 <!-- 게시글 검색(테스트용) -->
+   <select id="searchTest" resultType="com.cloud.domain.BoardVO">
+      <![CDATA[
+	      SELECT * FROM tbl_board
+	      WHERE 
+      ]]>
+         <trim suffix="AND">
+         <foreach collection="map" index="key" item="val"
+         			separator="OR" open="(" close=")">
+            <!-- #{key} #{val} -->
+            <if test="key =='T'.toString()">
+               title like #{val}
+            </if>
+            <if test="key =='C'.toString()">
+               content like #{val}
+            </if>
+         </foreach>
+         </trim>
+      <![CDATA[      
+            ROWNUM < 10
+      ]]>
+   </select>
+
+	
+	
 	<insert id="insertBoard">
 		INSERT INTO tbl_board(bno, title, writer, content) 
 		VALUES(seq.nextval, #{title}, #{writer}, #{content})

@@ -1,9 +1,10 @@
 @charset "UTF-8";
 /* 공통 스타일  */
 *{margin: 0; padding: 0;}
+li{list-style: none;}
 hr{margin: 20px;}
-h3, h4{margin: 10px;}
-a{text-decoration: none;}
+h3,h4{margin: 10px;}
+a{text-decoration: none; color: #000}
 
 .main{width:100%; height:130px; line-height:130px; background: #eee; margin-bottom: 20px;  }
 /* menu - nav bar 스타일 */
@@ -12,16 +13,21 @@ nav ul li{display: inline-block; margin: 10px; border-top: 3px solid #222;
 	padding: 10px 15px;}
 nav ul li:hover{background: pink; border-top: 3px solid red;}
 
-/* 레이아웃 */
-#container{width: 1000px; margin: 0 auto; text-align: center;}
+/* layout */
+#container{width: 100%; margin: 0 auto; text-align: center;}
+.title{height: 130px; background: beige; line-height: 130px;
+    margin-bottom: 20px;}
+.msg{height: 80px; background: pink; line-height: 80px; color: brown;}
 .exception{background: pink; padding: 50px;}
-footer{margin-left: 20%; margin-top: 10%;}
+footer{margin-left: 20%; margin-top: 10%}
 
 /* boardList 스타일 */
 .tbl_list{margin: 20px auto; width: 620px;}
 .tbl_list, th, td{border: 1px solid #ccc; border-collapse: collapse;
    padding: 10px;}
 .tbl_list th{background: #eee;}
+#list select, .keyword{height: 25px; }
+#list ul li{display: inline-block; margin: 5px;}
 .btn_box{width: 620px; margin: 0 auto; text-align: left}
 #list button{padding: 10px 20px;}
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cloud.domain.BoardVO;
 import com.cloud.domain.Criteria;
@@ -75,24 +76,29 @@ public class BoardController {
 	
 	//글 상세보기 처리
 	@GetMapping("/boardView")
-	public String getBoard(int bno, Model model) {
+	public String getBoard(int bno,Criteria cri,  Model model) {
 		service.updateCount(bno);			 // 조회수 증가
 		BoardVO board = service.getBoard(bno);// 상세 보기 처리
 		model.addAttribute("board", board);  // model = board 보내기
+		model.addAttribute("cri", cri); 	//model =  cri 보내기
 		return "board/boardView";
 	}
 	
 	//글 삭제
 	@GetMapping("/deleteBoard")
-	public String delete(BoardVO vo) {
-		service.delete(vo);
+	public String delete(BoardVO vo, Criteria cri, RedirectAttributes rttr ) {
+		service.delete(vo); // redirect attributes 사용
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		return "redirect:/board/boardList";
 	}
 	
 	//글 수정
 	@PostMapping("/updateBoard")
-	public String update(BoardVO vo) {
+	public String update(BoardVO vo, Criteria cri, RedirectAttributes rttr) {	
 		service.update(vo);
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		return "redirect:/board/boardList";
 	}
 	

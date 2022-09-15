@@ -1,6 +1,8 @@
 package com.cloud.mapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +52,7 @@ public class BoardMapperTests {
 	}
 	*/
 	
+	/*
 	@Test
 	public void testPageDTO() {
 		Criteria cri = new Criteria();
@@ -59,7 +62,22 @@ public class BoardMapperTests {
 		PageDTO page = new PageDTO(cri, 152);
 		log.info(page);
 	}
+	*/
 	
+	@Test
+	public void testSearch() {
+		Map<String, String> map = new HashMap<>();
+		map.put("T", "¸ù");
+		map.put("C", "2");
+		
+		//ÁßÃ¸ map
+		Map<String, Map<String, String>> outer = new HashMap<>();
+		outer.put("map", map);		//xmlÂÊÀÇ collection = "map"
+		
+		List<BoardVO> list = mapper.searchTest(outer);
+		
+		log.info(list);
+	}
 	
 	
 }
