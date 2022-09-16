@@ -64,11 +64,13 @@ public class BoardMapperTests {
 	}
 	*/
 	
+	/*
 	@Test
 	public void testSearch() {
 		Map<String, String> map = new HashMap<>();
 		map.put("T", "몽");
 		map.put("C", "2");
+		map.put("W", "admin");
 		
 		//중첩 map
 		Map<String, Map<String, String>> outer = new HashMap<>();
@@ -78,6 +80,17 @@ public class BoardMapperTests {
 		
 		log.info(list);
 	}
+	*/
 	
-	
+	@Test
+	public void testSearchPaging() {
+		// 검색 종류와 키워드 입력
+		Criteria cri = new Criteria();
+		cri.setType("T");
+		cri.setKeyword("빨강색");
+		
+		List<BoardVO> list = mapper.getListWithPage(cri);
+		
+		list.forEach(board -> log.info(board));
+	}
 }

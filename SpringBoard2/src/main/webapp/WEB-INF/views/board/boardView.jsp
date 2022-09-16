@@ -18,8 +18,11 @@
 			<form action="/board/updateBoard" method="post">
 			<!-- 수정 시 기본키 필요함  -->
 			<input type="hidden" name="bno" value="${board.bno }">
+			<!-- 수정 , 삭제시 페이지로 돌아감 -->
 			<input type="hidden" name="pageNum" value="${cri.pageNum }">
 			<input type="hidden" name="amount" value="${cri.amount }">
+			<input type="hidden" name="type" value="${cri.type}">
+			<input type="hidden" name="keyword" value="${cri.keyword}">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<!-- 토큰  -->
 				<table class="tbl_view">
@@ -68,6 +71,8 @@
 				<input type="hidden" name="bno" value="${board.bno }">
 				<input type="hidden" name="pageNum" value="${cri.pageNum }">
 				<input type="hidden" name="amount" value="${cri.amount }">
+				<input type="hidden" name="type" value="${pageMaker.cri.type }">
+				<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
 			</form>
 	</div>
 <script type="text/javascript">

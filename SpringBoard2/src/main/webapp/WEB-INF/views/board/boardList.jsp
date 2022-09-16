@@ -28,7 +28,7 @@
 					<option value="TW">제목 OR 내용</option>
 					<option value="TWC">제목 OR 내용 OR 작성자</option>
 				</select>
-				<input type="text" name="keyword" class="keyword">
+				<input type="text" name="keyword" class="keyword" value="${pageMaker.cri.keyword}">
 				<button type="button">Search</button>
 			</form>
 			<table class="tbl_list">
@@ -53,7 +53,7 @@
 				<ul>
 				<!-- 이전 메뉴  -->
 				<c:if test="${pageMaker.prev }">
-				<li>
+				<li class="page-link">
 					<a href="${pageMaker.startPage - 1 }">이전</a>
 				</li>
 				</c:if>
@@ -73,16 +73,18 @@
 				</c:forEach>
 				<!-- 다음 메뉴  -->
 				<c:if test="${pageMaker.next }">
-				<li>
-					<a href="${pageMaker.endPage + 1 }">이전</a>
+				<li class="page-link">
+					<a href="${pageMaker.endPage + 1 }">다음</a>
 				</li>
 				</c:if>
 				</ul>
 			</div>
-			<!-- 페이지 처리 전송 폼 -->
+			<!-- 페이지 처리와 검색 전송 폼 -->
 			<form action="/board/boardList" method="get" id="actionForm">
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+				<input type="hidden" name="type" value="${pageMaker.cri.type }">
+				<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
 			</form>
 			<div class="btn_box">
 				<a href="/board/insertBoard"><button type="button">글쓰기</button></a>
@@ -114,8 +116,20 @@
 			actionForm.attr("action", "/board/boardView");
 			actionForm.submit();
 		});
+		
+		//검색 폼 처리
+		let searchForm = $("#searchForm");
+		
+		$("#searchForm button").click(function(e){
+			e.preventDefault();
+			console.log("click........");
+			
+			searchForm.find("input[name='pageNum']").val(1);  //1페이지부터 검색
+			searchForm.submit();
+		});
+		
+		
 	});
 </script>
-
 </body>
 </html>
