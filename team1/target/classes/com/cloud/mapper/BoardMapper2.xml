@@ -9,6 +9,25 @@
 		SELECT * FROM tbl_horror ORDER BY bno DESC
 	</select>
 	
+	<!-- 페이지 처리가 되는 목록 보기 -->
+	<select id="getListWithPage" resultType="com.cloud.domain.BoardVO2">
+		<![CDATA[
+		SELECT * FROM
+		(
+		    SELECT /*+ INDEX_DESC(tbl_horror pk_horror) */
+		    ROWNUM rn, bno, title, writer, content, regdate, updatedate, cnt 
+		    FROM tbl_horror
+		    WHERE ROWNUM <= (#{pageNum} * #{amount})
+		)
+		WHERE rn > (#{pageNum}-1) * 10
+		]]>
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM tbl_horror
+	</select>
+	
 	<insert id="insertBoard2">
 		INSERT INTO tbl_horror(bno, title, writer, content) 
 		VALUES (horrorSeq.nextval, #{title}, #{writer}, #{content})

@@ -7,14 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 목록</title>
-<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/font.css">
 <style type="text/css">
-/* #container{background-color: black;} */
-.multiple-box-shadows {
- /*  box-shadow: -5px -5px 25px 3px b, 5px 5px 30px 5px blue; */
- box-shadow: 0 0 15px  green;
-}
+#container{background-image: radial-gradient(circle, #9bc1f9, #bccffa, #d7ddfc, #ededfd, #ffffff);}
 </style>
 </head>
 <body>
@@ -22,10 +18,9 @@
    <div id="container">
       <section id="list">
          <div class="title">
-            <!-- <h2 style="color: white;">회원 목록</h2> -->
-            <h2 >회원 목록</h2>
+            <h2>회원 목록</h2>
          </div>
-            <table class="tbl_list multiple-box-shadows">
+            <table class="tbl_list">
                <thead>
                   <tr>
                      <th>번호</th>
@@ -40,7 +35,7 @@
                   <c:forEach items="${memberList}" var="member" varStatus="status">
                    <tr>
                       <td><c:out value="${status.count}"/></td>
-                      <td><a style="color:black" href="/member/memberView?userid=<c:out value="${member.userid}" />"><c:out value="${member.userid}" /></a></td>
+                      <td><a href="/member/memberView?userid=<c:out value="${member.userid}" />"><c:out value="${member.userid}" /></a></td>
                       <%-- <td><c:out value="${member.userpw}" /></td> --%>
                       <td><c:out value="${member.username}" /></td>
                       <td><fmt:formatDate value="${member.regdate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>

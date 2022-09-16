@@ -9,6 +9,26 @@
 		SELECT * FROM tbl_humor ORDER BY bno DESC
 	</select>
 	
+	<!-- 페이지 처리가 되는 목록 보기 -->
+	<select id="getListWithPage" resultType="com.cloud.domain.BoardVO">
+		<![CDATA[
+		SELECT * FROM
+		(
+		    SELECT /*+ INDEX_DESC(tbl_humor pk_humor) */
+		    ROWNUM rn, bno, title, writer, content, regdate, updatedate, cnt 
+		    FROM tbl_humor
+		    WHERE ROWNUM <= (#{pageNum} * #{amount})
+		)
+		WHERE rn > (#{pageNum}-1) * 10
+		]]>
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM tbl_humor
+	</select>
+	
+	<!-- 게시글 입력  -->
 	<insert id="insertBoard">
 		INSERT INTO tbl_humor(bno, title, writer, content) 
 		VALUES (humorSeq.nextval, #{title}, #{writer}, #{content})

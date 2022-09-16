@@ -8,14 +8,17 @@
 <title>내 정보</title>
 <link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<style type="text/css">
+#container{background-image: radial-gradient(circle, #9bc1f9, #bccffa, #d7ddfc, #ededfd, #ffffff);}
+</style>
 </head>
 <body>
 <jsp:include page="../menu.jsp" />
    <div id="container">
       <section id="memberView">
-         <h2>회원 정보</h2>
+         <h2>[${member.username}] 님의 회원 정보</h2>
          <form action="/member/update" method="post" onsubmit= "return checkForm()" name="checkform">
-            <table class="tbl_signup">
+            <table class="tbl_my">
                <tr>
                   <td>아이디</td>
                   <td><input type="text" name="userid" value="${member.userid}"></td>
@@ -33,17 +36,16 @@
                   <td><input type="text" name="username" value="${member.username}"></td>
                </tr>
                <tr>
-                        <td>이메일</td>
-                        <td><input type="text" name="email" value="${member.email}"></td>
-                     </tr>
+                   <td>이메일</td>
+                   <td><input type="text" name="email" value="${member.email}"></td>
+               </tr>
                <tr>
                   <td colspan="2">
                   <input type="submit" value="수정">
-                  <a href='/member/delete?userid=<c:out value="${member.userid}"/>'
-                     onclick="return confirm('정말로 탈퇴 하시겠습니까?')">
-                  <input type="button" value="탈퇴">
+                  <a href='/member/delete?userid=<c:out value="${member.userid}"/>' onclick="return confirm('정말로 탈퇴 하시겠습니까?')">
+                  	<input type="button" value="탈퇴" >
                   </a>
-                  <a href="/member/memberList"><input type="button" value="목록"></a>
+                  	<a href="/member/memberList"><input type="button" value="목록" class="list"></a>
                   </td>
                </tr>
             </table>

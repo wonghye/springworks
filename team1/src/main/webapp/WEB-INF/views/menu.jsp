@@ -11,20 +11,30 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/319f0bada6.js" crossorigin="anonymous"></script>
+<script>
+function chk_form() {
+document.getElementById('frm').submit();
+}
+</script>
 <style>
-.NavBox ul{width:100%; margin:0 auto; height:100%}
-.NavBox li{width:180px; float:left; padding:10px 0px; margin:0px; text-align:center; list-style: none;}
-.NavBox a{color:white; text-decoration:none;}
+ul{width:100%; margin:0 auto; height:100%}
+li{width:180px; float:left; padding:10px 0px; margin:0px; text-align:center; list-style: none;}
+.collapse a{color:white; text-decoration:none;}
 .menutopbox{height:90px; margin:0px;}
-@media (min-width: 0px) and (max-width: 1024px) {
-.NavBox li{float:left; width:100%; height:20px; margin-bottom:20px;}
-.NavBox ul{width:100%; margin:0 auto; height:100%}
-.menutopbox{height:250px;}
+@media ( max-width: 768px ) {
+  li{float:none;}
+  .menutopbox{height:100%;}
 }
 </style>
 </head>
 <body>
-<div class="collapse NavBox" id="navbarToggleExternalContent">
+<div id="formBox" style="display:none;">
+<form action="/customLogout" id="frm" method="post">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">
+      <button type="submit">로그아웃</button>
+   </form>
+</div>
+<div class="collapse" id="navbarToggleExternalContent">
   <div class="bg-dark p-4 menutopbox">
   <security:authorize access="isAnonymous()">
       <ul>  
@@ -51,7 +61,7 @@
     <h6><a href="/board/boardList2">공포</a></h6> --%>
     <ul>
          <li><a href ="/">Home</a></li>
-         <li><a href ="/customLogout"><c:out value="${pinfo.username }" />(님)로그아웃</a></li>
+         <li><a href ="#" onclick="chk_form()"><c:out value="${pinfo.username }" />(님)로그아웃</a></li>
          <li><a href ="/member/memberList">회원목록</a></li>
          <li><a href="/board/boardList">재미</a></li>
          <li><a href="/board/boardList2">공포</a></li>   

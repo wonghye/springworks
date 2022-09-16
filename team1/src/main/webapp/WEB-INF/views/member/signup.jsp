@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title><spring:message code="message.user.signup.title" /></title>
-<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
 <script type="text/javascript">
 
@@ -119,7 +118,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
          </form>
       </section>
+      <jsp:include page="../footer.jsp" />
    </div>
-   <jsp:include page="../footer.jsp" />
 </body>
 </html>

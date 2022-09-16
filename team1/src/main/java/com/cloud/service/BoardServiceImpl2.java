@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cloud.domain.BoardVO2;
+import com.cloud.domain.Criteria2;
 import com.cloud.mapper.BoardMapper2;
 
 @Service
@@ -42,6 +43,16 @@ public class BoardServiceImpl2 implements BoardService2{
 	@Override
 	public void updateCount2(int bno) { //조회수 서비스
 		mapper2.updateCount2(bno);
+	}
+
+	@Override
+	public List<BoardVO2> getListWithPage(Criteria2 cri) {
+		return mapper2.getListWithPage(cri);
+	}
+
+	@Override
+	public int getTotalCount(Criteria2 cri) {
+		return mapper2.getTotalCount(cri);
 	}
 
 }

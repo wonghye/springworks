@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cloud.domain.BoardVO2;
+import com.cloud.domain.Criteria2;
+import com.cloud.domain.PageDTO2;
 import com.cloud.service.BoardService2;
 
 @RequestMapping("/board/*")  //localhost:8080/board/aaa
@@ -24,12 +26,23 @@ public class BoardController2 {
 	private BoardService2 service2;
 
 	//목록 보기
-	@GetMapping("/boardList2")//localhost:8080/board/boardList
+	/* @GetMapping("/boardList2")//localhost:8080/board/boardList
 	public String getBoardList2(Model model) {
 		List<BoardVO2> boardList2 = service2.getBoardList2();
 		model.addAttribute("boardList2", boardList2); //view로 전송
 		return "/board/boardList2";
-	}
+	} */
+	//목록 보기
+			@GetMapping("/boardList2")//localhost:8080/board/boardList
+			public String getBoardList(Criteria2 cri2, Model model) {
+				List<BoardVO2> boardList = service2.getListWithPage(cri2);
+				int total = service2.getTotalCount(cri2);
+				PageDTO2 pageMaker = new PageDTO2(cri2, total);
+				
+				model.addAttribute("boardList2", boardList); //view로 전송
+				model.addAttribute("pageMaker", pageMaker); //"pageMaker" -> boardList.jsp
+				return "/board/boardList2";
+			}
 	
 	//글쓰기 폼 페이지 요청
 	@PreAuthorize("isAuthenticated()")

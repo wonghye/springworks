@@ -8,21 +8,24 @@
 <head>
 <meta charset="UTF-8">
 <title>상세 보기</title>
-<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
-<style type="text/css">
+<style>
 #container{background-image: linear-gradient(to bottom, #f9e7f9, #ffe8ef, #ffede5, #fff4e2, #f7fbe7);}
-
 </style>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
    <div id="container">
-   	<div id="bg">
       <section id="list">
          <h2>${board.title}</h2>
          <form action="/board/updateBoard" method="post">
-         <input type="hidden" name="bno" value="${board.bno }">
+			<!-- 수정 시에 기본키 속성이 반드시 필요함  --> 
+			<input type="hidden" name="bno" value="${board.bno}">
+			<!-- 수정, 삭제시에 페이지 번호 유지(안하면 무조건 1페이지로 이동) -->
+			<input type="hidden" name="pageNum" value="${cri.pageNum}">
+			<input type="hidden" name="amount" value="${cri.amount}">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <table class="tbl_view">
                <tr>
                   <td>제목</td>
@@ -69,8 +72,24 @@
             </table>
          </form>
       </section>
-      </div>
+      <!-- 페이지 처리 전송 폼 -->
+         <form action="/board/boardList" method="get" id="actionForm">            
+            <input type="hidden" name="bno" value="${board.bno}">
+            <input type="hidden" name="pageNum" value="${cri.pageNum}">
+            <input type="hidden" name="amount" value="${cri.amount}">
+         </form>
    </div>
-   <jsp:include page="../footer.jsp" />
+<script type="text/javascript">
+   $(document).ready(function(){ //제이쿼리 환경
+      let actionForm = $("#actionForm");
+         
+      $(".lBtn").click(function(e){
+         e.preventDefault();
+         actionForm.submit();
+      })   
+   
+   });
+</script>
+
 </body>
 </html>
