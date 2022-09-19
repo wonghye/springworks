@@ -100,7 +100,7 @@
    <!-- 글 수정 -->
    <update id="updateBoard">
       UPDATE tbl_board
-      SET title = #{title}, content = #{content}
+      SET title = #{title}, content = #{content}, updatedate = sysdate
       WHERE bno = #{bno}
    </update>
 

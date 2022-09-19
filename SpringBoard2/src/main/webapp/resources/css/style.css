@@ -26,6 +26,7 @@ footer{margin-left: 20%; margin-top: 10%}
 .tbl_list, th, td{border: 1px solid #ccc; border-collapse: collapse;
    padding: 10px;}
 .tbl_list th{background: #eee;}
+.tbl_list .cnt{color: #bb0000;}
 #list select, .keyword{height: 25px; }
 #list ul li{display: inline-block; margin: 5px;}
 .btn_box{width: 620px; margin: 0 auto; text-align: left}
