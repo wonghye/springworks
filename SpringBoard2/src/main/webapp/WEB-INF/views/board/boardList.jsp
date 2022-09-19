@@ -39,7 +39,10 @@
 				<tr>
 					<td><c:out value="${board.bno}" /></td>
 					<td><a href='<c:out value="${board.bno}" />' class="move">
-						<c:out value="${board.title}" /></a>
+						<c:out value="${board.title}" />
+						<!-- 댓글 개수 -->
+						[<c:out value="${board.replycnt}" />]
+						</a>
 					</td>
 					<td><c:out value="${board.writer}" /></td>
 					<td><fmt:formatDate value="${board.regDate}" 

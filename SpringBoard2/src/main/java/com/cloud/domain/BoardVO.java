@@ -24,6 +24,7 @@ public class BoardVO implements Serializable{
 	private Date regDate;    //작성일
 	private Date updateDate; //수정일 
 	private int cnt;         //조회수
+	private int replycnt;	// 댓글 개수 
 	
 	
 	private MultipartFile uploadFile;	//파일 업로드

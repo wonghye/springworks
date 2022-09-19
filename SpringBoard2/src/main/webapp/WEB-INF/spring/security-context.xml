@@ -20,8 +20,8 @@
 	<!-- 기본 서비스 -주석시 sample/~ 사이트 접근 불가, 접근시 주석해제 후 접근해야함 -->
 	<security:http>
 		<!-- <security:intercept-url pattern="/sample/all" access="permitAll"/> -->
-		<!--<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/> -->
-		<!-- <security:intercept-url pattern="/board/insertBoard" access="isAuthenticated()"/> -->
+		<security:intercept-url pattern="/board/insertBoard" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/board/boardView" access="isAuthenticated()"/>
 		<security:intercept-url pattern="/member/memberList" access="hasRole('ROLE_ADMIN')"/>
 		
 		<!-- <security:form-login/> -->

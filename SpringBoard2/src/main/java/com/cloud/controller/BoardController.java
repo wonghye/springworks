@@ -20,8 +20,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.cloud.domain.BoardVO;
 import com.cloud.domain.Criteria;
 import com.cloud.domain.PageDTO;
+import com.cloud.domain.ReplyVO;
 import com.cloud.service.BoardService;
+import com.cloud.service.ReplyService;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @RequestMapping("/board/*")  // localhost:8080/board/~~
 @Controller
 public class BoardController {
@@ -29,15 +34,8 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
-	//목록보기
-	/*
-	@GetMapping("/boardList") //localhost:8080/board/boardList
-	public String getBoardList(Model model) { 
-		List<BoardVO> boardList = service.getBoardList();
-		model.addAttribute("boardList", boardList);  // view 로 전송
-		return "/board/boardList";
-	}
-	*/
+	@Autowired
+	private ReplyService replyService;
 	
 	//목록보기
 	@GetMapping("/boardList") //localhost:8080/board/boardList
@@ -74,13 +72,17 @@ public class BoardController {
 		return "redirect:/board/boardList";
 	}
 	
-	//글 상세보기 처리
+	//글 상세보기 처리 , 댓글 목록 
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/boardView")
 	public String getBoard(int bno,Criteria cri,  Model model) {
 		service.updateCount(bno);			 // 조회수 증가
 		BoardVO board = service.getBoard(bno);// 상세 보기 처리
+		List<ReplyVO> replyList = replyService.getReplyList(bno); // 댓글 목록 처리
+		
 		model.addAttribute("board", board);  // model = board 보내기
 		model.addAttribute("cri", cri); 	//model =  cri 보내기
+		model.addAttribute("replyList", replyList); //model -> replyList 
 		return "board/boardView";
 	}
 	
@@ -106,7 +108,16 @@ public class BoardController {
 		return "redirect:/board/boardList";
 	}
 	
-	
+	//댓글 등록
+	@PostMapping("/reply")
+	public String reply(ReplyVO vo, RedirectAttributes rttr) {
+		log.info("댓글 작성");
+		
+		replyService.register(vo);  // 등록 처리 서비스
+		
+		rttr.addAttribute("bno", vo.getBno());
+		return "redirect:/board/boardView";
+	}
 	
 	
 	

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 </head>
 <body>
 	<div id="container">
-		<section id="list">
+		<section id="view">
 			<h2>글 상세 보기</h2>
 			<form action="/board/updateBoard" method="post">
 			<!-- 수정 시 기본키 필요함  -->
@@ -65,6 +66,39 @@
 					</tr>
 				</table>
 			</form>
+			<!-- 댓글 영역 -->
+			<div class="comment">
+				<h4>댓글</h4>
+				<ol class="replyList">
+					<c:forEach items="${replyList}" var="list">
+						<li>
+							<p>작성자 : <c:out value="${list.replyer }" /> &nbsp;&nbsp;
+							   (작성일 : <fmt:formatDate value="${list.replyDate }" pattern="yyyy-MM-dd hh:mm:ss"/> ) 
+							</p>
+							<p class="content"><c:out value="${list.reply }" /></p>   
+						</li>
+					</c:forEach>
+				</ol>
+				<!-- 댓글 등록폼 -->
+				<form action="" method="post" id="replyForm" class="reply">
+					<input type="hidden" name="bno" value="${board.bno }">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<ul>
+						<li>
+							<label>작성자</label>
+							<input type="text" name="replyer" id="replyer" 
+							value="<security:authentication property="principal.username"/>">
+							
+						</li>
+						<li>
+							<textarea rows="4" cols="60" name="reply" id="reply"></textarea>
+							<button type="button" class="replyBtn">댓글 등록</button>
+						</li>
+					</ul>
+				
+				</form>
+			</div>
+			
 		</section>
 		<!-- 페이지 처리 전송 폼 -->
 			<form action="/board/boardList" method="get" id="actionForm">
@@ -75,13 +109,25 @@
 				<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
 			</form>
 	</div>
+	<jsp:include page="../footer.jsp" />
 <script type="text/javascript">
 	$(document).ready(function(e){  // 제이쿼리 환경
+		//목록 버튼 이벤트 
 		let actionForm = $("#actionForm");
 		
 		$(".listBtn").click(function(e){
 			e.preventDefault();  // 기본 동작 막아줌
 			actionForm.submit();
+		});
+		
+		//댓글 등록 이벤트 처리
+		let replyForm = $("#replyForm");
+		$(".replyBtn").click(function (e){
+			e.preventDefault(); 	//기본 동작 제한(링크 등)
+			console.log("test~");
+			
+			replyForm.attr("action", "/board/reply");
+			replyForm.submit();
 		});
 	});
 </script>		
