@@ -13,7 +13,7 @@
   box-shadow: -5px -5px 30px 5px #FFB3B3, 5px 5px 30px 5px #FFDBA4;
 }
 .dung {position: absolute; z-index: 99; width: 80px; height: 80px; 
-         background: url("../resources/images/smile.png") no-repeat center / contain; animation: dung 100s infinite linear;}
+         background: url("../resources/images/funny.png") no-repeat center / contain; animation: dung 100s infinite linear;}
 @keyframes dung {
 0% {top:15%; left:80%;}
 25% {top:25%; left:0;}

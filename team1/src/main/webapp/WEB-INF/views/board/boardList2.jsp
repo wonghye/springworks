@@ -17,7 +17,8 @@
 	   background: url("../resources/images/ghost1.png") no-repeat center / contain;
 	   animation: dung 100s infinite linear;}
 	   
-@keyframes dung { 0% {top:0; left:80%;}
+@keyframes dung 
+{ 0% {top:10%; left:80%;}
 25% {top:25%; left:0;}
 50% {top:50%; left:80%;}
 75% {top:75%; left:0;}
@@ -62,7 +63,7 @@
 				<ul class="paging">
 				<!-- 이전(Previous) 메뉴 -->
 				<c:if test="${pageMaker.prev}">
-					<li>
+					<li class="page-link">
 						<a href="${pageMaker.startPage - 1 }">이전</a>
 					</li>
 				</c:if>
@@ -84,8 +85,8 @@
 				</c:forEach>
 				<!-- 다음(Next) 메뉴 -->
 				<c:if test="${pageMaker.next}">
-					<li>
-						<a href="${pageMaker.endPage + 1 }">이전</a>
+					<li class="page-link">
+						<a href="${pageMaker.endPage + 1 }">다음</a>
 					</li>
 				</c:if>
 				</ul>

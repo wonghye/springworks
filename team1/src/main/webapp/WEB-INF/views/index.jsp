@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome~</title>
+<title>환영합니다~ </title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/font.css">
 <style>
-   .btns{margin:10px 0 10px;}
-}
+#container{background-image: radial-gradient(circle, #9bc1f9, #bccffa, #d7ddfc, #ededfd, #ffffff);}
+.btns{margin:10px 0 10px;}
 </style>
 </head>
 <body>

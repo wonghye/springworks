@@ -5,8 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>에러처리</title>
+<title>에러 - 관리자 전용 페이지</title>
+<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<style type="text/css">
+#container{background-image: radial-gradient(circle, #9bc1f9, #bccffa, #d7ddfc, #ededfd, #ffffff);}
+</style>
 </head>
 <body>
 	<jsp:include page="./menu.jsp" />

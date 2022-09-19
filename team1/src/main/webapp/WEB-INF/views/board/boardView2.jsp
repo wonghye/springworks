@@ -7,15 +7,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상세 보기</title>
+<title>상세 보기 - 공포</title>
+<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<style type="text/css">
+#container{background-image: linear-gradient(to bottom, #d32929, #a42027, #761a21, #4b1418, #230a0a);}
+</style>
 </head>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <body>
 <jsp:include page="../menu.jsp"/>
    <div id="container">
       <section id="list">
-         <h2>${board2.title}</h2>
+         <h2 style="color: white;">${board2.title}</h2>
          <form action="/board/updateBoard2" method="post">
 			<!-- 수정 시에 기본키 속성이 반드시 필요함  --> 
 			<input type="hidden" name="bno" value="${board2.bno}">

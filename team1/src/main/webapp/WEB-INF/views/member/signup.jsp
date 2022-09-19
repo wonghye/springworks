@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title><spring:message code="message.user.signup.title" /></title>
+<link rel="stylesheet" href="/resources/css/font.css">
 <link rel="stylesheet" href="/resources/css/style.css">
 <script type="text/javascript">
 
