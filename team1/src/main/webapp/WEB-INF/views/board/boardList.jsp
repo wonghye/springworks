@@ -55,7 +55,7 @@
             <ul class="paging">
             <!-- 이전(Previous) 메뉴 -->
             <c:if test="${pageMaker.prev}">
-               <li class="page-link">
+               <li class="page-l">
                   <a href="${pageMaker.startPage - 1 }">이전</a>
                </li>
             </c:if>
@@ -63,21 +63,21 @@
                        var="num">
                 <!-- 현재 페이지 활성화 -->
                 <c:if test="${pageMaker.cri.pageNum eq num}">
-               <li class="page-link">
+               <li class="page-l">
                   <b><a href="${num}" style="color: blue">
                      <c:out value="${num}" /></a>
                   </b>
                </li>
                </c:if>
                 <c:if test="${pageMaker.cri.pageNum ne num}">
-               <li class="page-link">
+               <li class="page-l">
                   <a href="${num}"><c:out value="${num}" /></a>
                </li>
                </c:if>
             </c:forEach>
             <!-- 다음(Next) 메뉴 -->
             <c:if test="${pageMaker.next}">
-               <li class="page-link">
+               <li class="page-l">
                   <a href="${pageMaker.endPage + 1 }">다음</a>
                </li>
             </c:if>
@@ -99,7 +99,7 @@
    $(document).ready(function(){ //제이쿼리 환경
       let actionForm = $("#actionForm");
       //페이지 이동
-      $(".page-link a").on("click", function(e){
+      $(".page-l a").on("click", function(e){
          e.preventDefault(); //기본 동작 제한(링크 걸리지 않음)
          let targetPage = $(this).attr("href"); //클릭한 페이지
          console.log(targetPage);

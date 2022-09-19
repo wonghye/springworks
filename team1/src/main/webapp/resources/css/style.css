@@ -51,7 +51,10 @@ nav ul li:hover{background: #eee;} */
 .tbl_list th{background: #eee;}
 .btn_box{width: 1000px; margin: 0 auto; text-align: left}
 #list button{padding: 10px 20px;}
-#list .paging li{display:inline-block;}
+#list .paging li{display:inline-block; color: black;}
+#list .paging li a{text-decoration: none; color: blue;}
+
+
 
 /* memberList 스타일 */
 .tbl_m_list{margin: 20px auto; width: 1000px; font-size: 20px; background-color: white;}
