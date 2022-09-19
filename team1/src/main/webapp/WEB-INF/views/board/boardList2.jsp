@@ -97,7 +97,7 @@
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 			</form>
          <div class="btn_box">
-            <a href="/board/insertBoard2"><button type="button">작성하기</button></a>
+            <a href="/board/insertBoard2"><button type="button" class="btn-hover color-8">작성하기</button></a>
          </div>
       </section>
    <link rel="stylesheet" href="/resources/css/style.css">
