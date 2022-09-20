@@ -44,7 +44,7 @@
          <p class="dung"></p>
          <table class="tbl_list multiple-box-shadows">
             <tr>
-               <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
+               <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th>
             </tr>
             <c:forEach items="${boardList2}" var="board2">
             <tr>
@@ -54,7 +54,6 @@
                <td><fmt:formatDate value="${board2.regDate}" 
                        pattern="yyyy-MM-dd hh:mm:ss" /></td>
                <td><c:out value="${board2.cnt}" /></td>
-               <td><%-- <c:out value="${board.hit }" /> --%></td>
             </tr>
             </c:forEach>
          </table>
@@ -72,7 +71,7 @@
 				    <!-- 현재 페이지 활성화 -->
 				    <c:if test="${pageMaker.cri.pageNum eq num}">
 					<li class="page-l">
-						<b><a href="${num}" style="color: blue">
+						<b><a href="${num}" style="color: white">
 							<c:out value="${num}" /></a>
 						</b>
 					</li>

@@ -36,22 +36,21 @@
          <p class="dung">
 	         <table class="tbl_list multiple-box-shadows">
 	            <tr>
-	               <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th><th>좋아요</th>
+	               <th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th>
 	            </tr>
 	            <c:forEach items="${boardList}" var="board">
 	            <tr>
 	               <td><c:out value="${board.bno}" /></td>
-	               <td><a href="/board/boardView?bno=<c:out value='${board.bno}'/>"><c:out value="${board.title}" /></a> </td>
+	               <td><a style="color:black" href="/board/boardView?bno=<c:out value='${board.bno}'/>"><c:out value="${board.title}" /></a> </td>
 	               <td><c:out value="${board.writer}" /></td>
 	               <td><fmt:formatDate value="${board.regDate}" 
 	                       pattern="yyyy-MM-dd hh:mm:ss" /></td>
 	               <td><c:out value="${board.cnt}" /></td>
-	               <td><%-- <c:out value="${board.hit }" /> --%></td>
 	            </tr>
 	            </c:forEach>
 	         </table>
          <!-- pagination(페이징) -->
-         <div>
+         <div class="pagingBox">
             <ul class="paging">
             <!-- 이전(Previous) 메뉴 -->
             <c:if test="${pageMaker.prev}">
@@ -64,7 +63,7 @@
                 <!-- 현재 페이지 활성화 -->
                 <c:if test="${pageMaker.cri.pageNum eq num}">
                <li class="page-l">
-                  <b><a href="${num}" style="color: blue">
+                  <b><a href="${num}" style="color: #ed6ea0">
                      <c:out value="${num}" /></a>
                   </b>
                </li>
