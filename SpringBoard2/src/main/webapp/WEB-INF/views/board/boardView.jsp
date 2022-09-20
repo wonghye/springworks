@@ -43,9 +43,9 @@
 					</tr>
 					<tr>
 						<td>등록일</td>
-						<td class="time"><fmt:formatDate value="${board.regDate}"
-							pattern="yyyy-MM-dd hh:mm:ss"/>
-						</td>
+						<td class="time"><fmt:formatDate value="${board.updateDate}" 
+					              pattern="yyyy-MM-dd HH:mm:ss" />
+		              	</td>
 					</tr>
 					<tr>
 						<td>조회수</td>
@@ -72,10 +72,17 @@
 				<ol class="replyList">
 					<c:forEach items="${replyList}" var="list">
 						<li>
-							<p>작성자 : <c:out value="${list.replyer }" /> &nbsp;&nbsp;
-							   (작성일 : <fmt:formatDate value="${list.replyDate }" pattern="yyyy-MM-dd hh:mm:ss"/> ) 
+							<p class="replyer">작성자: <c:out value="${list.replyer}" />&nbsp;&nbsp;
+							   (작성일: <fmt:formatDate value="${list.updateDate}" 
+							   				pattern="yyyy-MM-dd HH:mm:ss" /> )
 							</p>
-							<p class="content"><c:out value="${list.reply }" /></p>   
+							<p class="content"><c:out value="${list.reply }" /></p>  
+							<c:if test="${pinfo.username eq list.replyer}">
+							<p>
+								<button type="button" class="replyUpdateBtn" data-rno="${list.rno}">수정</button>
+								<button type="button" class="replyDeleteBtn" data-rno="${list.rno}">삭제</button>
+							</p>
+							</c:if> 
 						</li>
 					</c:forEach>
 				</ol>
@@ -129,6 +136,30 @@
 			replyForm.attr("action", "/board/reply");
 			replyForm.submit();
 		});
+		
+		//댓글 삭제 페이지 요청
+		$(".replyDeleteBtn").click(function(e){
+			e.preventDefault(); //링크 안되도록 함
+			console.log("click....");
+			
+			let rno = $(this).attr("data-rno"); //삭제 버튼
+			
+			location.href = "/board/replyDelete?bno=${board.bno}"
+						+ "&rno=" + rno;
+		}); //click 닫기
+			
+		//댓글 수정 페이지 요청
+		$(".replyUpdateBtn").click(function(e){
+			e.preventDefault(); //링크 안되도록 함
+			console.log("click....");
+			
+			let rno = $(this).attr("data-rno"); //수정 버튼
+			
+			location.href = "/board/replyUpdate?bno=${board.bno}"
+						+ "&rno=" + rno;
+		}); //click 닫기
+		
+		
 	});
 </script>		
 </body>

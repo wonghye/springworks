@@ -9,8 +9,28 @@
   		SELECT * FROM tbl_reply WHERE bno = #{bno}
   	</select>
   	
+  	<!-- 댓글 등록 -->
   	<insert id="register">
 		INSERT INTO tbl_reply(rno, bno, reply, replyer)
 		VALUES (seq_reply.nextval, #{bno} ,#{reply} ,#{replyer})  	
   	</insert>
+  	
+  	<!-- 특정 댓글 조회 -->
+	<select id="getReply" resultType="com.cloud.domain.ReplyVO">
+		SELECT * FROM tbl_reply WHERE rno = #{rno}
+	</select>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="delete">
+		DELETE FROM tbl_reply WHERE rno = #{rno}
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="update">
+		UPDATE tbl_reply
+		SET reply = #{reply}, updatedate = SYSDATE
+		WHERE rno = #{rno}
+	</update>
+  	
+  	
   </mapper>

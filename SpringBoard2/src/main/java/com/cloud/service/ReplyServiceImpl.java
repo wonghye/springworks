@@ -34,5 +34,24 @@ public class ReplyServiceImpl implements ReplyService {
 		boardMapper.updateReplyCnt(vo.getBno(),1); // 1 : amount 임
 		replyMapper.register(vo);
 	}
+	
+	//특정 댓글 조회
+	@Override
+	public ReplyVO getReply(int rno) {
+		return replyMapper.getReply(rno);
+	}
+
+	//댓글 삭제
+	@Override
+	public void delete(ReplyVO vo) {
+		boardMapper.updateReplyCnt(vo.getBno(), -1); //-1:amount 임
+		replyMapper.delete(vo);
+	}
+
+	//댓글 수정
+	@Override
+	public void update(ReplyVO vo) {
+		replyMapper.update(vo);
+	}
 
 }

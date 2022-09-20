@@ -9,7 +9,7 @@ import lombok.Getter;
 @Setter
 public class ReplyVO {
 	
-	private int rno;	//댓글번호
+	private int rno;	//댓글 번호(기본키)
 	private int bno;	//글번호
 	
 	private String reply;	//댓글 내용

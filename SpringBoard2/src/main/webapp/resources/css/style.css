@@ -55,13 +55,20 @@ footer{margin-left: 20%; margin-top: 10%}
 
 /* 댓글 스타일 */
 #view .comment{width: 580px; margin: 40px auto; border-top: 2px dashed #aaa; text-align: left;}
-#view .replyList p{padding-left: 10px; margin: 10px;}
-#view .replyList p .content{border-bottom: 1px dotted #aaa; margin: 10px;}
-#view .replyForm{width:580px; margin: 20px auto; }
-#view .replyForm input{height: 25px; }
-#view ul li{display: block; margin: 10px;}
-#view textarea{float: left; margin-right: 20px;}
-#view button{font-size: 0.9em; padding: 3px;}
+.comment .replyList p{padding-left: 10px; margin: 10px;}
+.comment .replyList p.replyer{border-top: 1px dotted #aaa; padding: 10px;}
+.comment .replyUpdateBtn, .replyDeleteBtn{font-size: 0.8em;}
+.comment .replyForm{width: 580px; margin: 20px auto; text-align: left;}
+.comment .replyForm input{height: 25px;}
+.comment ul li{display: block; margin: 10px;}	
+.comment textarea{float: left; margin-right: 20px;}
+.comment button{font-size: 0.9em; padding: 3px;}
+
+/* replyUpdate 스타일 */
+#reply_update .updateForm{margin: 20px auto; width: 580px;}
+.updateForm ul li{display: block; margin: 10px;}
+.updateForm label{float: left; padding-left: 60px;}
+.updateForm button{font-size: 0.9em; padding: 5px;}
 
 /* login 스타일 */
 .tbl_login{margin: 20px auto; width: 380px;}
