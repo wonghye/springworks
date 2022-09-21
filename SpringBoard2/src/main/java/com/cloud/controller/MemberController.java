@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cloud.domain.MemberVO;
 import com.cloud.service.MemberService;
@@ -41,6 +42,14 @@ public class MemberController {
 		return "redirect:/customLogin";
 	}
 	
+	//ID 중복 체크
+	@GetMapping("/checkID")
+	@ResponseBody
+	public int checkID(String userid) {
+		int result = service.checkID(userid);
+		return result;
+	}
+
 	//회원 목록 보기
 	@GetMapping("/memberList")
 	@PreAuthorize("isAuthenticated()") // 로그인 창이 뜸

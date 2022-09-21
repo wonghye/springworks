@@ -12,6 +12,8 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/sample/*")
 @Controller
 public class SampleController {
+	
+	
 
 	//jstl - functions 태그 실습 
 	@GetMapping("/functions")

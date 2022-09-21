@@ -21,5 +21,7 @@ public interface MemberService {
 	//회원 수정
 	public void update(MemberVO member);
 	
+	//id 중복 체크
+	public int checkID(String userid);
 	
 }

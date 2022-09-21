@@ -21,5 +21,8 @@ public interface MemberMapper {
 	//회원 수정
 	public void updateMember(MemberVO member);
 	
+	//id 중복 체크
+	public int checkID(String userid);
+	
 	
 }
