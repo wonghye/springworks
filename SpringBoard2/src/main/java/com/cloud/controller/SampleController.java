@@ -13,6 +13,12 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class SampleController {
 
+	//jstl - functions 태그 실습 
+	@GetMapping("/functions")
+	public String myFunctions() {
+		return "/sample/functions";
+	}
+	
 	
 	/*@GetMapping("/all")
 	public void doAll() {

@@ -10,8 +10,8 @@ public class AuthVO implements Serializable{
 	
 	private static final long serialVersionUID = 12L;
 	
-	private String userid;
-	private String auth;
+	private String userid;	//아이디
+	private String auth;	//권한
 
 	
 }

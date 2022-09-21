@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<%@ taglib uri ="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
+<%@ taglib uri ="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,8 @@
 							<th>아이디</th>
 							<th>이 름</th>
 							<th>가입일</th>
+							<th>권한1</th>
+							<!-- <th>권한2</th> -->
 						</tr>
 					</thead>
 					<tbody>
@@ -30,7 +33,11 @@
 							<td><a href="/member/memberView?userid=<c:out value="${member.userid }" />"> <c:out value="${member.userid }" /></a></td>						
 							<%-- <td><c:out value="${member.userpw }" /> </td> --%>						
 							<td><c:out value="${member.username }" /> </td>						
-							<td><fmt:formatDate value="${member.regdate }" pattern="yyyy-MM-dd hh:mm:ss"/></td>						
+							<td><fmt:formatDate value="${member.regdate }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+							<%-- <td><c:out value="${member.authList.get(0) }" /> </td>	 --%>				
+							<%--<td><c:out value="${fn:split(member.authList.get(0),'=')[2]}" /> </td>--%>
+							<!-- fn:replace(문자열, '이전문자','대체할문자') -->	
+							<td><c:out value="${fn:replace(fn:split(member.authList.get(0),'=')[2], ')', '')}" /> </td>						
 						</tr>
 					</c:forEach>	
 					</tbody>

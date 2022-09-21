@@ -19,6 +19,7 @@ nav ul li:hover{background: pink; border-top: 3px solid red;}
     margin-bottom: 20px;}
 .msg{height: 80px; background: pink; line-height: 80px; color: brown;}
 .exception{background: pink; padding: 50px;}
+#main img{border-radius: 5px;}
 footer{margin-left: 20%; margin-top: 10%}
 
 /* boardList 스타일 */
